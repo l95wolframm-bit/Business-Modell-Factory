@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Automatische Recherche aus vielen Quellen">
+  <defs>
+    <pattern id="g4dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#28251d" opacity="0.05"></circle>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" rx="28" fill="#f4f2ec"></rect>
+  <rect width="480" height="360" rx="28" fill="url(#g4dots)"></rect>
+  <rect x="0.75" y="0.75" width="478.5" height="358.5" rx="27.25" fill="none" stroke="#28251d" stroke-opacity="0.10"></rect>
+
+  <g transform="translate(240,180)">
+    
+    <circle r="72" fill="none" stroke="#28251d" stroke-opacity="0.10" stroke-width="1.5"></circle>
+    <circle r="126" fill="none" stroke="#28251d" stroke-opacity="0.08" stroke-width="1.5"></circle>
+
+    
+    <g stroke="#28251d" stroke-opacity="0.22" stroke-width="1.5">
+      <line x1="0" y1="0" x2="-150" y2="-58"></line>
+      <line x1="0" y1="0" x2="-86" y2="84"></line>
+      <line x1="0" y1="0" x2="14" y2="-128"></line>
+      <line x1="0" y1="0" x2="120" y2="-86"></line>
+      <line x1="0" y1="0" x2="158" y2="38"></line>
+      <line x1="0" y1="0" x2="64" y2="118"></line>
+    </g>
+
+    
+    <circle cx="-150" cy="-58" r="11" fill="#28251d" fill-opacity="0.16" stroke="#28251d" stroke-opacity="0.4" stroke-width="1.5"></circle>
+    <circle cx="-86" cy="84" r="8" fill="#28251d" fill-opacity="0.16" stroke="#28251d" stroke-opacity="0.4" stroke-width="1.5"></circle>
+    <circle cx="14" cy="-128" r="13" fill="#01696f" fill-opacity="0.16" stroke="#01696f" stroke-width="1.75"></circle>
+    <circle cx="120" cy="-86" r="9" fill="#28251d" fill-opacity="0.16" stroke="#28251d" stroke-opacity="0.4" stroke-width="1.5"></circle>
+    <circle cx="158" cy="38" r="10" fill="#01696f" fill-opacity="0.16" stroke="#01696f" stroke-width="1.75"></circle>
+    <circle cx="64" cy="118" r="7" fill="#28251d" fill-opacity="0.16" stroke="#28251d" stroke-opacity="0.4" stroke-width="1.5"></circle>
+
+    
+    <circle r="22" fill="#f4f2ec"></circle>
+    <circle r="22" fill="#01696f" fill-opacity="0.12" stroke="#01696f" stroke-width="2"></circle>
+    <circle r="7" fill="#01696f"></circle>
+  </g>
+</svg>

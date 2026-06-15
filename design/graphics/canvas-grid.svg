@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Business Model Canvas">
+  <defs>
+    <pattern id="g1dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#28251d" opacity="0.05"></circle>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="480" height="360" rx="28" fill="#f4f2ec"></rect>
+  <rect x="0" y="0" width="480" height="360" rx="28" fill="url(#g1dots)"></rect>
+  <rect x="0.75" y="0.75" width="478.5" height="358.5" rx="27.25" fill="none" stroke="#28251d" stroke-opacity="0.10"></rect>
+
+  
+  <rect x="70" y="84" width="340" height="192" rx="12" fill="none" stroke="#28251d" stroke-opacity="0.28" stroke-width="1.5"></rect>
+
+  
+  <g stroke="#28251d" stroke-opacity="0.16" stroke-width="1.5">
+    <line x1="138" y1="84" x2="138" y2="212"></line>
+    <line x1="206" y1="84" x2="206" y2="212"></line>
+    <line x1="274" y1="84" x2="274" y2="212"></line>
+    <line x1="342" y1="84" x2="342" y2="212"></line>
+    
+    <line x1="138" y1="148" x2="206" y2="148"></line>
+    <line x1="274" y1="148" x2="342" y2="148"></line>
+    
+    <line x1="70" y1="212" x2="410" y2="212"></line>
+    <line x1="240" y1="212" x2="240" y2="276"></line>
+  </g>
+
+  
+  <rect x="206" y="84" width="68" height="128" fill="#01696f" fill-opacity="0.12"></rect>
+  <rect x="206.75" y="84.75" width="66.5" height="126.5" fill="none" stroke="#01696f" stroke-width="1.75"></rect>
+  <g fill="#01696f">
+    <rect x="216" y="120" width="48" height="7" rx="3.5"></rect>
+    <rect x="216" y="134" width="38" height="7" rx="3.5" fill-opacity="0.55"></rect>
+    <rect x="216" y="148" width="44" height="7" rx="3.5" fill-opacity="0.55"></rect>
+    <circle cx="240" cy="100" r="6"></circle>
+  </g>
+
+  
+  <g fill="#28251d" opacity="0.18">
+    <rect x="82" y="104" width="44" height="5" rx="2.5"></rect>
+    <rect x="82" y="116" width="34" height="5" rx="2.5"></rect>
+    <rect x="150" y="104" width="40" height="5" rx="2.5"></rect>
+    <rect x="286" y="104" width="40" height="5" rx="2.5"></rect>
+    <rect x="354" y="104" width="44" height="5" rx="2.5"></rect>
+    <rect x="82" y="232" width="120" height="5" rx="2.5"></rect>
+    <rect x="82" y="244" width="90" height="5" rx="2.5"></rect>
+    <rect x="252" y="232" width="120" height="5" rx="2.5"></rect>
+  </g>
+
+  
+  <g fill="#01696f">
+    <circle cx="70" cy="84" r="3.5"></circle>
+    <circle cx="410" cy="276" r="3.5"></circle>
+  </g>
+</svg>

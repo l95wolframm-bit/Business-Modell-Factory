@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Belegter Report mit Validierungs-Score">
+  <defs>
+    <pattern id="g6dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#28251d" opacity="0.05"></circle>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" rx="28" fill="#f4f2ec"></rect>
+  <rect width="480" height="360" rx="28" fill="url(#g6dots)"></rect>
+  <rect x="0.75" y="0.75" width="478.5" height="358.5" rx="27.25" fill="none" stroke="#28251d" stroke-opacity="0.10"></rect>
+
+  
+  <rect x="128" y="64" width="224" height="232" rx="14" fill="#f9f8f5" stroke="#28251d" stroke-opacity="0.26" stroke-width="1.75"></rect>
+  
+  <rect x="150" y="88" width="84" height="9" rx="4.5" fill="#01696f"></rect>
+  <rect x="150" y="106" width="150" height="7" rx="3.5" fill="#28251d" opacity="0.3"></rect>
+  <line x1="150" y1="128" x2="330" y2="128" stroke="#28251d" stroke-opacity="0.12"></line>
+  
+  <g fill="#28251d" opacity="0.16">
+    <rect x="150" y="146" width="180" height="6" rx="3"></rect>
+    <rect x="150" y="160" width="150" height="6" rx="3"></rect>
+    <rect x="150" y="174" width="170" height="6" rx="3"></rect>
+    <rect x="150" y="200" width="120" height="6" rx="3"></rect>
+    <rect x="150" y="214" width="158" height="6" rx="3"></rect>
+  </g>
+  
+  <rect x="150" y="262" width="96" height="5" rx="2.5" fill="#01696f" opacity="0.5"></rect>
+
+  
+  <g transform="translate(330,256)">
+    <circle r="48" fill="#f4f2ec"></circle>
+    
+    <circle r="38" fill="#f9f8f5" stroke="#28251d" stroke-opacity="0.14" stroke-width="7"></circle>
+    
+    <circle r="38" fill="none" stroke="#01696f" stroke-width="7" stroke-linecap="round" stroke-dasharray="186 239" transform="rotate(-90)"></circle>
+    <circle r="6" fill="#01696f"></circle>
+    <rect x="-15" y="16" width="30" height="6" rx="3" fill="#28251d" opacity="0.3"></rect>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Marktgröße TAM SAM SOM">
+  <defs>
+    <pattern id="g2dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#28251d" opacity="0.05"></circle>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" rx="28" fill="#f4f2ec"></rect>
+  <rect width="480" height="360" rx="28" fill="url(#g2dots)"></rect>
+  <rect x="0.75" y="0.75" width="478.5" height="358.5" rx="27.25" fill="none" stroke="#28251d" stroke-opacity="0.10"></rect>
+
+  
+  <g transform="translate(240,180)">
+    <circle r="128" fill="none" stroke="#28251d" stroke-opacity="0.16" stroke-width="1.5"></circle>
+    <circle r="86" fill="#01696f" fill-opacity="0.05" stroke="#01696f" stroke-opacity="0.45" stroke-width="1.5"></circle>
+    <circle r="46" fill="#01696f" fill-opacity="0.14" stroke="#01696f" stroke-width="1.75"></circle>
+    <circle r="9" fill="#01696f"></circle>
+
+    
+    <line x1="0" y1="0" x2="113" y2="-60" stroke="#28251d" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="3 4"></line>
+    <circle cx="113" cy="-60" r="4.5" fill="#28251d" fill-opacity="0.5"></circle>
+
+    
+    <g fill="#28251d" opacity="0.5">
+      <rect x="-16" y="-128" width="32" height="5" rx="2.5"></rect>
+    </g>
+    <g fill="#01696f">
+      <rect x="-14" y="-86" width="28" height="5" rx="2.5" opacity="0.7"></rect>
+    </g>
+  </g>
+</svg>

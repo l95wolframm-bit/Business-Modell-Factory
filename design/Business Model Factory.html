@@ -565,6 +565,35 @@ html[data-theme="dark"] body::before{opacity:.34;}
 .timeline .step:nth-child(4n+3) .step-num{color:var(--ink-indigo);}
 .timeline .step:nth-child(4n+4) .step-num{color:var(--ink-amber);}
 
+/* eyecatcher illustrations replace the hand-built feature mocks */
+.f-visual.eyecatcher{
+  background:none;border:none;padding:0;min-height:0;
+  box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;
+}
+.f-visual.eyecatcher img{
+  width:100%;height:auto;display:block;border-radius:24px;
+  box-shadow:var(--shadow-lg);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease;
+}
+.feature-row:hover .f-visual.eyecatcher img{transform:translateY(-4px);}
+html[data-theme="dark"] .f-visual.eyecatcher img{box-shadow:0 24px 64px -24px rgba(0,0,0,.75);outline:1px solid rgba(255,255,255,.07);outline-offset:-1px;}
+
+/* methodik supporting eyecatchers (market sizing + stress test) */
+.methodik-eyecatchers{
+  display:grid;gap:18px;grid-template-columns:1fr;
+  margin-top:clamp(32px,4vw,52px);
+}
+@media(min-width:720px){.methodik-eyecatchers{grid-template-columns:1fr 1fr;}}
+.methodik-eyecatchers figure{margin:0;}
+.methodik-eyecatchers img{
+  width:100%;height:auto;display:block;border-radius:24px;
+  box-shadow:var(--shadow-md);
+}
+html[data-theme="dark"] .methodik-eyecatchers img{box-shadow:0 18px 50px -20px rgba(0,0,0,.7);outline:1px solid rgba(255,255,255,.07);outline-offset:-1px;}
+.methodik-eyecatchers figcaption{
+  margin-top:12px;font-size:.875rem;color:var(--text-muted);line-height:1.4;
+}
+
 /* waitlist card: vibrant top edge to anchor the final CTA */
 .wl-card{background:var(--glass-strong);}
 .wl-card::after{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:linear-gradient(90deg,var(--c-teal),var(--c-coral),var(--c-amber),var(--c-indigo));opacity:.9;}
@@ -686,12 +715,8 @@ html[data-theme="dark"] body::before{opacity:.34;}
             <span class="f-tag">SSRN</span><span class="f-tag">OpenAlex</span><span class="f-tag">Reddit</span><span class="f-tag">GitHub</span><span class="f-tag">Hugging Face</span>
           </div>
         </div>
-        <div class="f-visual reveal">
-          <div class="mock-head"><span class="mock-title">Research-Lauf</span><span class="mock-dot-live"><span class="d"></span> live</span></div>
-          <div class="src-row"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><div class="src-name">SSRN</div><div class="src-meta">214 Paper · 8 relevant</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
-          <div class="src-row"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18"/></svg></div><div><div class="src-name">OpenAlex</div><div class="src-meta">1.402 Werke · 31 zitiert</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
-          <div class="src-row"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><div class="src-name">Reddit</div><div class="src-meta">6 Subreddits · Sentiment +</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
-          <div class="src-row pending"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg></div><div><div class="src-name">GitHub</div><div class="src-meta">analysiert …</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg></div></div>
+        <div class="f-visual eyecatcher reveal">
+          <img src="graphics/research-network.svg" alt="Automatische Recherche: zentrale Idee, aus vielen Quellen wie SSRN, OpenAlex, Reddit und GitHub verdichtet." loading="lazy" width="480" height="360" />
         </div>
       </div>
 
@@ -703,15 +728,8 @@ html[data-theme="dark"] body::before{opacity:.34;}
           <p>Viele Märkte folgen den USA mit Verzögerung. Business Model Factory misst diesen Zeitversatz für deine Kategorie – und zeigt dir, wie viel Vorsprung im DACH-Markt realistisch noch offen ist.</p>
           <div class="f-tags"><span class="f-tag">Zeitversatz-Analyse</span><span class="f-tag">Kategorie-Benchmarks</span><span class="f-tag">Markteintritts-Timing</span></div>
         </div>
-        <div class="f-visual reveal">
-          <div class="mock-head"><span class="mock-title">Trend-Versatz · Vertical AI</span></div>
-          <div class="trend-wrap">
-            <div class="trend-axis">
-              <div class="trend-pt us" style="left:24%"><span class="lab top">US-Adoption</span><span class="pin"></span><span class="lab bot">Q1 ’24</span></div>
-              <div class="trend-pt" style="left:78%"><span class="lab top" style="color:var(--primary)">DACH-Adoption</span><span class="pin"></span><span class="lab bot">Q3 ’25</span></div>
-            </div>
-            <div class="trend-gap"><b>+14</b> Monate Vorsprung-Fenster im DACH-Markt</div>
-          </div>
+        <div class="f-visual eyecatcher reveal">
+          <img src="graphics/trend-transfer.svg" alt="US-zu-DACH-Trend-Transfer: zeitversetzte Adoptionskurve mit offenem Vorsprung-Fenster im DACH-Markt." loading="lazy" width="480" height="360" />
         </div>
       </div>
 
@@ -723,22 +741,8 @@ html[data-theme="dark"] body::before{opacity:.34;}
           <p>Fülle den interaktiven Business Model Canvas aus – und lass ihn von der KI angreifen. Jeder Baustein wird mit gezielten Gegenanfragen konfrontiert, bis nur belastbare Annahmen übrig bleiben.</p>
           <div class="f-tags"><span class="f-tag">9 Canvas-Bausteine</span><span class="f-tag">KI-Gegenanfragen</span><span class="f-tag">Annahmen-Tracking</span></div>
         </div>
-        <div class="f-visual reveal">
-          <div class="mock-head"><span class="mock-title">Business Model Canvas</span></div>
-          <div class="canvas-grid">
-            <div class="cv-cell">Partner</div>
-            <div class="cv-cell active">Value Proposition</div>
-            <div class="cv-cell">Kundensegment</div>
-            <div class="cv-cell">Ressourcen</div>
-            <div class="cv-cell">Kanäle</div>
-            <div class="cv-cell">Beziehung</div>
-            <div class="cv-cell span2">Kostenstruktur</div>
-            <div class="cv-cell">Erlöse</div>
-          </div>
-          <div class="stress-bubble">
-            <div class="av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></div>
-            <p><b>Gegenfrage:</b> Dein Nutzenversprechen setzt voraus, dass Kanzleien intern keine Lösung bauen. Welche Evidenz hast du dafür?</p>
-          </div>
+        <div class="f-visual eyecatcher reveal">
+          <img src="graphics/canvas-grid.svg" alt="Interaktiver Business Model Canvas mit neun Bausteinen, ein Feld hervorgehoben." loading="lazy" width="480" height="360" />
         </div>
       </div>
 
@@ -750,12 +754,8 @@ html[data-theme="dark"] body::before{opacity:.34;}
           <p>Aus deinem geprüften Modell leitet Business Model Factory passende Förderprogramme ab – mit Match-Score, Fristen und Antrags-Voraussetzungen. EXIST, EIC, Distr@l und über 40 weitere.</p>
           <div class="f-tags"><span class="f-tag">EXIST</span><span class="f-tag">EIC Accelerator</span><span class="f-tag">Distr@l</span><span class="f-tag">+40 Programme</span></div>
         </div>
-        <div class="f-visual reveal">
-          <div class="mock-head"><span class="mock-title">Förder-Matches</span></div>
-          <div class="fund-row"><div><div class="fund-name">EXIST-Gründerstipendium</div><div class="fund-desc">Hochschulnahe Ausgründung · BMWK</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:94%"></div></div><span class="fund-pct">94%</span></div></div>
-          <div class="fund-row"><div><div class="fund-name">EIC Accelerator</div><div class="fund-desc">Deep-Tech · Europäische Kommission</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:81%"></div></div><span class="fund-pct">81%</span></div></div>
-          <div class="fund-row"><div><div class="fund-name">Distr@l</div><div class="fund-desc">Digitalisierung · Land Hessen</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:67%"></div></div><span class="fund-pct">67%</span></div></div>
-          <div class="fund-row"><div><div class="fund-name">go-digital</div><div class="fund-desc">Digitale Markterschließung · BMWK</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:58%"></div></div><span class="fund-pct">58%</span></div></div>
+        <div class="f-visual eyecatcher reveal">
+          <img src="graphics/report-score.svg" alt="Belegter Validierungs-Report mit Score und passenden Förderprogrammen." loading="lazy" width="480" height="360" />
         </div>
       </div>
     </div>
@@ -786,6 +786,17 @@ html[data-theme="dark"] body::before{opacity:.34;}
             <div><h4>Evidenz vor Meinung</h4><p>Jede Aussage im Report ist auf eine konkrete Quelle zurückführbar. Keine Bewertung ohne nachvollziehbaren Beleg.</p></div>
           </div>
         </div>
+      </div>
+
+      <div class="methodik-eyecatchers reveal">
+        <figure>
+          <img src="graphics/market-rings.svg" alt="Marktgröße als verschachtelte Ringe: TAM, SAM und SOM für deine Kategorie." loading="lazy" width="480" height="360" />
+          <figcaption>Marktgröße datenbasiert: TAM · SAM · SOM statt Schätzung.</figcaption>
+        </figure>
+        <figure>
+          <img src="graphics/stress-test.svg" alt="KI-Stress-Test: jeder Canvas-Baustein wird mit gezielten Gegenfragen konfrontiert." loading="lazy" width="480" height="360" />
+          <figcaption>Stress-Test nach Haaker et&nbsp;al.: gezielte KI-Gegenfragen je Baustein.</figcaption>
+        </figure>
       </div>
     </div>
   </section>

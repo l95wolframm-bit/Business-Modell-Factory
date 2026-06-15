@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="US zu DACH Trend-Transfer">
+  <defs>
+    <pattern id="g3dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#28251d" opacity="0.05"></circle>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" rx="28" fill="#f4f2ec"></rect>
+  <rect width="480" height="360" rx="28" fill="url(#g3dots)"></rect>
+  <rect x="0.75" y="0.75" width="478.5" height="358.5" rx="27.25" fill="none" stroke="#28251d" stroke-opacity="0.10"></rect>
+
+  
+  <line x1="64" y1="288" x2="416" y2="288" stroke="#28251d" stroke-opacity="0.18" stroke-width="1.5"></line>
+  <g stroke="#28251d" stroke-opacity="0.10" stroke-width="1">
+    <line x1="64" y1="232" x2="416" y2="232"></line>
+    <line x1="64" y1="176" x2="416" y2="176"></line>
+    <line x1="64" y1="120" x2="416" y2="120"></line>
+  </g>
+
+  
+  <polyline points="92,256 140,232 188,200 236,150 284,118" fill="none" stroke="#28251d" stroke-opacity="0.30" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 7"></polyline>
+  <circle cx="284" cy="118" r="6" fill="#fff" stroke="#28251d" stroke-opacity="0.45" stroke-width="2"></circle>
+
+  
+  <polyline points="152,272 200,250 248,222 296,176 344,146" fill="none" stroke="#01696f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+  <circle cx="344" cy="146" r="7" fill="#01696f"></circle>
+
+  
+  <path d="M284 118 C 312 118 320 132 322 142" fill="none" stroke="#01696f" stroke-opacity="0.6" stroke-width="1.75" stroke-dasharray="4 4"></path>
+  <path d="M322 142 l -7 -3 l 4 7 z" fill="#01696f"></path>
+
+  
+  <circle cx="92" cy="256" r="4" fill="#28251d" fill-opacity="0.35"></circle>
+  <circle cx="152" cy="272" r="4.5" fill="#01696f"></circle>
+</svg>
