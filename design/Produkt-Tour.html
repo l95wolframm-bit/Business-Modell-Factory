@@ -408,6 +408,78 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .footer-bottom .meta{display:flex;gap:20px;flex-wrap:wrap;}
 .footer-bottom a:hover{color:var(--primary);}
 
+/* ============ GLASSMORPHISM + ENERGETIC ACCENTS (shared with landing) ============ */
+:root{
+  --c-teal:#01a39a;--c-coral:#f4663b;--c-amber:#f3ab3c;--c-indigo:#5566ef;
+  --ink-teal:#01696f;--ink-coral:#cb4a26;--ink-indigo:#3c41c6;--ink-amber:#9a6b0d;
+  --glass:color-mix(in srgb, var(--surface) 58%, transparent);
+  --glass-strong:color-mix(in srgb, var(--surface) 80%, transparent);
+  --glass-border:color-mix(in srgb, #ffffff 55%, var(--border));
+  --glass-hi:rgba(255,255,255,.6);--glass-blur:16px;
+}
+html[data-theme="dark"]{
+  --c-teal:#3fb6ad;--c-coral:#ff8763;--c-amber:#ffc25e;--c-indigo:#8a93ff;
+  --ink-teal:#5fc4c9;--ink-coral:#ff9670;--ink-indigo:#a3abff;--ink-amber:#ffc870;
+  --glass:color-mix(in srgb, var(--surface) 50%, transparent);
+  --glass-strong:color-mix(in srgb, var(--surface) 72%, transparent);
+  --glass-border:color-mix(in srgb, #ffffff 14%, var(--border));
+  --glass-hi:rgba(255,255,255,.08);
+}
+
+/* ambient energetic colour field — same as landing */
+body::before{
+  content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(36vw 36vw at 12% 6%, color-mix(in srgb,var(--c-teal) 40%,transparent), transparent 60%),
+    radial-gradient(32vw 32vw at 90% 2%, color-mix(in srgb,var(--c-coral) 36%,transparent), transparent 58%),
+    radial-gradient(42vw 42vw at 84% 68%, color-mix(in srgb,var(--c-indigo) 32%,transparent), transparent 62%),
+    radial-gradient(30vw 30vw at 6% 84%, color-mix(in srgb,var(--c-amber) 32%,transparent), transparent 60%);
+  opacity:.55;
+}
+html[data-theme="dark"] body::before{opacity:.34;}
+
+/* frosted chips + nav */
+.nav{background:color-mix(in srgb,var(--bg) 60%,transparent);}
+.hero-badge,.eng-chip,.eng-badge,.market-badge{
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(1.5);
+  backdrop-filter:blur(var(--glass-blur)) saturate(1.5);
+  border-color:var(--glass-border);
+}
+
+/* energetic gradient CTA — same as landing */
+.btn-primary{
+  background:linear-gradient(128deg, var(--c-teal) 0%, color-mix(in srgb,var(--c-indigo) 62%, var(--c-teal)) 100%);
+  color:#fff;box-shadow:0 6px 18px -8px color-mix(in srgb,var(--c-indigo) 70%,transparent), var(--shadow-sm);
+}
+.btn-primary:hover{filter:brightness(1.05) saturate(1.05);background:linear-gradient(128deg, var(--c-teal) 0%, color-mix(in srgb,var(--c-indigo) 62%, var(--c-teal)) 100%);box-shadow:0 10px 26px -10px color-mix(in srgb,var(--c-indigo) 75%,transparent), var(--shadow-md);}
+
+/* app windows read as glass-framed product shots (inner UI stays solid) */
+.win{
+  box-shadow:var(--shadow-lg), inset 0 1px 0 var(--glass-hi);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+}
+.tour-step:hover .win{transform:translateY(-3px);box-shadow:var(--shadow-lg), 0 0 0 1px color-mix(in srgb,var(--c-teal) 22%,transparent), inset 0 1px 0 var(--glass-hi);}
+html[data-theme="dark"] .win{outline:1px solid rgba(255,255,255,.05);outline-offset:-1px;}
+
+/* rotating accent on the per-step kickers — energetic, restrained */
+.step-kicker::before{background:currentColor;}
+#idee .step-kicker{color:var(--ink-teal);}
+#research .step-kicker{color:var(--ink-coral);}
+#markt .step-kicker{color:var(--ink-indigo);}
+#canvas .step-kicker{color:var(--ink-amber);}
+#kalkulation .step-kicker{color:var(--ink-teal);}
+#foerderung .step-kicker{color:var(--ink-coral);}
+#report .step-kicker{color:var(--ink-indigo);}
+
+/* closing CTA: vibrant divider echoing the landing waitlist edge */
+.closing .h2{position:relative;}
+.closing::before{
+  content:"";display:block;width:60px;height:4px;border-radius:999px;
+  margin:0 auto clamp(22px,3vw,30px);
+  background:linear-gradient(90deg,var(--c-teal),var(--c-coral),var(--c-amber),var(--c-indigo));
+}
+
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
 .reveal.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
