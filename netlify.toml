@@ -1,0 +1,22 @@
+# Netlify-Konfiguration — statische Auslieferung der Design-Dateien
+[build]
+  # Keine Build-Tools nötig: reine HTML/CSS/SVG-Dateien
+  publish = "design"
+
+# Saubere Root-URL: "/" liefert die Landing Page (Dateiname enthält Leerzeichen)
+[[redirects]]
+  from = "/"
+  to = "/Business%20Model%20Factory.html"
+  status = 200
+
+[[redirects]]
+  from = "/tour"
+  to = "/Produkt-Tour.html"
+  status = 200
+
+# Sicherheits-Header
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
