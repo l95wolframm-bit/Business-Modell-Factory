@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Business Model Factory — Deine Geschäftsidee. Wissenschaftlich geprüft.</title>
+<meta name="description" content="Business Model Factory prüft deine Idee gegen echte Marktdaten, wissenschaftliche Paper und aktuelle Trends – und zeigt dir, wie du dich differenzierst." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#f7f6f2;
+  --surface:#f9f8f5;
+  --surface-2:#f1efe8;
+  --text:#28251d;
+  --text-muted:#7a7974;
+  --primary:#01696f;
+  --primary-hover:#0c4e54;
+  --on-primary:#f7f6f2;
+
+  --border:oklch(from var(--text) l c h / 0.12);
+  --border-strong:oklch(from var(--text) l c h / 0.20);
+  --hairline:oklch(from var(--text) l c h / 0.07);
+
+  --shadow-sm:0 1px 2px rgba(40,37,29,.05), 0 1px 1px rgba(40,37,29,.04);
+  --shadow-md:0 1px 2px rgba(40,37,29,.04), 0 10px 30px -12px rgba(40,37,29,.18);
+  --shadow-lg:0 2px 4px rgba(40,37,29,.05), 0 24px 60px -24px rgba(40,37,29,.28);
+
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans:"Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --container:960px;
+  --container-wide:1200px;
+
+  --r-sm:8px;
+  --r-md:14px;
+  --r-lg:22px;
+
+  --nav-h:68px;
+}
+
+html[data-theme="dark"]{
+  --bg:#1a1916;
+  --surface:#222019;
+  --surface-2:#2b2820;
+  --text:#f0eee6;
+  --text-muted:#a09d92;
+  --primary:#3aa6ab;
+  --primary-hover:#54bcc1;
+  --on-primary:#11201f;
+
+  --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+  --shadow-md:0 1px 2px rgba(0,0,0,.3), 0 12px 34px -14px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 4px rgba(0,0,0,.35), 0 28px 70px -26px rgba(0,0,0,.7);
+}
+
+/* ============ RESET ============ */
+*,*::before,*::after{box-sizing:border-box;}
+*{margin:0;padding:0;}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + 16px);
+}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background-color .35s ease, color .35s ease;
+  overflow-x:hidden;
+}
+img,svg{display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input{font-family:inherit;}
+::selection{background:var(--primary);color:var(--on-primary);}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+}
+
+/* ============ LAYOUT HELPERS ============ */
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:24px;}
+.container-wide{max-width:var(--container-wide);}
+section{position:relative;}
+.section-pad{padding-block:clamp(64px,9vw,128px);}
+
+.eyebrow{
+  font-size:.8125rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--primary);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.eyebrow::before{
+  content:"";
+  width:24px;height:1px;
+  background:currentColor;
+  opacity:.6;
+}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:-.01em;}
+.display{font-size:clamp(2.75rem, 1.6rem + 5.4vw, 5rem);}
+.h2{font-size:clamp(2rem, 1.3rem + 3vw, 3.25rem);line-height:1.06;}
+.h3{font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2rem);}
+.lede{
+  font-size:clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  color:var(--text-muted);
+  line-height:1.5;
+  max-width:54ch;
+}
+.muted{color:var(--text-muted);}
+em{font-style:italic;}
+.serif-em{font-family:var(--serif);font-style:italic;font-weight:400;}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:500;font-size:1rem;
+  padding:13px 22px;border-radius:999px;
+  transition:transform .15s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--primary);color:var(--on-primary);box-shadow:var(--shadow-sm);}
+.btn-primary:hover{background:var(--primary-hover);box-shadow:var(--shadow-md);}
+.btn-ghost{color:var(--text);border:1px solid var(--border-strong);background:var(--surface);}
+.btn-ghost:hover{border-color:var(--text);background:var(--surface-2);}
+.btn .ic{width:18px;height:18px;}
+.btn-lg{padding:15px 26px;font-size:1.0625rem;}
+
+.link-inline{
+  color:var(--primary);font-weight:500;
+  display:inline-flex;align-items:center;gap:6px;
+  border-bottom:1px solid transparent;
+  transition:gap .2s ease, border-color .2s ease;
+}
+.link-inline:hover{gap:10px;}
+.link-inline .ic{width:16px;height:16px;}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:50;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  background:color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter:saturate(1.6) blur(14px);
+  -webkit-backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background-color .3s ease;
+}
+.nav.scrolled{border-bottom-color:var(--border);}
+.nav .container-wide{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.brand{display:inline-flex;align-items:center;gap:11px;color:var(--text);}
+.brand .logo{width:30px;height:30px;color:var(--primary);flex:none;}
+.brand .brand-name{
+  font-family:var(--serif);font-size:1.3rem;line-height:1;
+  letter-spacing:-.01em;white-space:nowrap;
+}
+.nav-links{display:none;align-items:center;gap:4px;}
+.nav-links a{
+  padding:8px 14px;border-radius:999px;font-size:.95rem;font-weight:500;white-space:nowrap;
+  color:var(--text-muted);transition:color .2s ease, background-color .2s ease;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface-2);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.theme-toggle{
+  width:40px;height:40px;border-radius:999px;
+  display:grid;place-items:center;
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--text);transition:background-color .2s ease, border-color .2s ease;
+}
+.theme-toggle:hover{background:var(--surface-2);border-color:var(--border-strong);}
+.theme-toggle .ic{width:18px;height:18px;}
+.theme-toggle .ic-moon{display:none;}
+html[data-theme="dark"] .theme-toggle .ic-sun{display:none;}
+html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
+.nav-cta{display:none;}
+@media(min-width:880px){
+  .nav-links{display:flex;}
+  .nav-cta{display:inline-flex;}
+}
+
+/* ============ HERO ============ */
+.hero{padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(48px,7vw,96px);}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px 6px 10px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);
+  font-size:.8125rem;font-weight:500;color:var(--text-muted);white-space:nowrap;
+  margin-bottom:28px;box-shadow:var(--shadow-sm);max-width:100%;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb, var(--primary) 22%, transparent);}
+.hero h1{max-width:16ch;margin-bottom:26px;}
+.hero h1 .soft{color:var(--text-muted);}
+.hero .lede{margin-bottom:36px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.hero-note{
+  margin-top:22px;font-size:.875rem;color:var(--text-muted);
+  display:flex;align-items:center;gap:8px;
+}
+.hero-note .ic{width:15px;height:15px;color:var(--primary);}
+
+.hero-proof{
+  margin-top:clamp(48px,6vw,72px);
+  padding-top:32px;border-top:1px solid var(--hairline);
+  display:grid;grid-template-columns:repeat(2,1fr);gap:28px 16px;
+}
+@media(min-width:720px){.hero-proof{grid-template-columns:repeat(4,1fr);}}
+.proof-stat .num{font-family:var(--serif);font-size:clamp(2rem,1.4rem+2vw,2.75rem);line-height:1;color:var(--text);}
+.proof-stat .lbl{margin-top:8px;font-size:.875rem;color:var(--text-muted);line-height:1.35;}
+
+/* ============ PROBLEM ============ */
+.problem .section-head{max-width:none;display:grid;gap:18px;margin-bottom:clamp(36px,5vw,56px);}
+.problem-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+@media(min-width:760px){
+  .problem-grid{grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;}
+  .p-card.wide{grid-column:1;grid-row:1 / span 2;}
+  .p-card.b{grid-column:2;grid-row:1;}
+  .p-card.c{grid-column:2;grid-row:2;}
+}
+.p-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:clamp(24px,3vw,38px);
+  box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.p-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong);}
+.p-card.wide{justify-content:space-between;gap:24px;}
+.p-stat{font-family:var(--serif);line-height:.95;letter-spacing:-.02em;color:var(--primary);}
+.p-card.wide .p-stat{font-size:clamp(4rem,3rem+6vw,7rem);}
+.p-card .p-stat{font-size:clamp(2.75rem,2rem+3vw,4rem);}
+.p-card h3{font-family:var(--sans);font-weight:700;font-size:1.0625rem;letter-spacing:-.01em;margin-bottom:8px;line-height:1.3;}
+.p-card p{color:var(--text-muted);font-size:.9375rem;}
+.p-card .p-source{margin-top:auto;padding-top:18px;font-size:.8125rem;color:var(--text-muted);opacity:.8;}
+
+/* ============ FEATURES ============ */
+.features .section-head{margin-bottom:clamp(40px,5vw,64px);max-width:58ch;}
+.feature-row{
+  display:grid;gap:clamp(28px,4vw,56px);align-items:center;
+  grid-template-columns:1fr;
+  padding-block:clamp(40px,5vw,68px);
+  border-top:1px solid var(--hairline);
+}
+.feature-row:first-of-type{border-top:none;}
+@media(min-width:860px){
+  .feature-row{grid-template-columns:1fr 1fr;}
+  .feature-row.reverse .f-copy{order:2;}
+  .feature-row.reverse .f-visual{order:1;}
+}
+.f-index{
+  font-family:var(--serif);font-size:1.1rem;color:var(--primary);
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.f-index::after{content:"";width:34px;height:1px;background:var(--border-strong);}
+.f-copy h3{margin-bottom:14px;max-width:18ch;}
+.f-copy p{color:var(--text-muted);max-width:42ch;margin-bottom:20px;}
+.f-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.f-tag{
+  font-size:.8125rem;font-weight:500;padding:5px 11px;border-radius:999px;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted);
+}
+
+/* feature mock visuals */
+.f-visual{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:clamp(20px,2.4vw,30px);
+  box-shadow:var(--shadow-md);min-height:280px;
+  display:flex;flex-direction:column;
+}
+.mock-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.mock-title{font-size:.8125rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted);}
+.mock-dot-live{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:var(--primary);font-weight:500;}
+.mock-dot-live .d{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:pulse 1.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.85);}50%{opacity:1;transform:scale(1);}}
+
+/* research source rows */
+.src-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--hairline);}
+.src-row:first-child{border-top:none;}
+.src-ic{width:32px;height:32px;border-radius:9px;background:var(--surface-2);border:1px solid var(--border);display:grid;place-items:center;flex:none;color:var(--text);}
+.src-ic .ic{width:16px;height:16px;}
+.src-name{font-weight:500;font-size:.9375rem;}
+.src-meta{font-size:.8125rem;color:var(--text-muted);}
+.src-check{margin-left:auto;color:var(--primary);display:grid;place-items:center;}
+.src-check .ic{width:18px;height:18px;}
+.src-row.pending .src-name,.src-row.pending .src-meta{opacity:.5;}
+.src-row.pending .src-check{color:var(--text-muted);opacity:.5;}
+
+/* trend timeline */
+.trend-wrap{display:flex;flex-direction:column;gap:22px;flex:1;justify-content:center;}
+.trend-axis{position:relative;height:4px;border-radius:2px;background:var(--surface-2);margin:34px 6px 30px;}
+.trend-axis::after{content:"";position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,var(--primary),transparent 92%);opacity:.18;}
+.trend-pt{position:absolute;top:50%;transform:translate(-50%,-50%);}
+.trend-pt .pin{width:14px;height:14px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 18%,transparent);}
+.trend-pt.us .pin{background:var(--text-muted);box-shadow:0 0 0 4px color-mix(in srgb,var(--text-muted) 16%,transparent);}
+.trend-pt .lab{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.8125rem;font-weight:500;}
+.trend-pt .lab.top{bottom:24px;}
+.trend-pt .lab.bot{top:24px;color:var(--text-muted);}
+.trend-gap{
+  align-self:center;display:inline-flex;align-items:center;gap:8px;
+  background:var(--surface-2);border:1px solid var(--border);border-radius:999px;
+  padding:8px 16px;font-size:.875rem;font-weight:500;
+}
+.trend-gap b{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--primary);}
+
+/* canvas mock */
+.canvas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;flex:1;}
+.cv-cell{background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:9px;min-height:54px;font-size:.6875rem;color:var(--text-muted);line-height:1.3;}
+.cv-cell.active{background:color-mix(in srgb,var(--primary) 12%,var(--surface));border-color:var(--primary);color:var(--text);}
+.cv-cell.span2{grid-column:span 2;}
+.stress-bubble{
+  margin-top:14px;display:flex;gap:10px;align-items:flex-start;
+  background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-md);
+  padding:12px 14px;
+}
+.stress-bubble .av{width:26px;height:26px;border-radius:8px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;flex:none;}
+.stress-bubble .av .ic{width:15px;height:15px;}
+.stress-bubble p{font-size:.8125rem;color:var(--text);line-height:1.4;margin:0;}
+
+/* funding match list */
+.fund-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--hairline);}
+.fund-row:first-child{border-top:none;}
+.fund-name{font-weight:500;font-size:.9375rem;}
+.fund-desc{font-size:.8125rem;color:var(--text-muted);}
+.fund-bar{margin-left:auto;display:flex;align-items:center;gap:10px;flex:none;}
+.fund-track{width:74px;height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden;}
+.fund-fill{height:100%;border-radius:3px;background:var(--primary);}
+.fund-pct{font-family:var(--serif);font-size:1.05rem;color:var(--text);min-width:42px;text-align:right;}
+
+/* ============ METHODIK ============ */
+.methodik{background:var(--surface);border-block:1px solid var(--border);}
+.methodik-inner{display:grid;gap:clamp(32px,4vw,56px);grid-template-columns:1fr;}
+@media(min-width:860px){.methodik-inner{grid-template-columns:0.85fr 1.15fr;}}
+.methodik h2{margin-bottom:20px;max-width:14ch;}
+.methodik .lede{margin-bottom:24px;}
+.method-list{display:grid;gap:14px;}
+.method-item{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--r-md);
+  padding:20px 22px;
+}
+.method-item .m-ic{width:38px;height:38px;border-radius:11px;background:var(--surface-2);border:1px solid var(--border);display:grid;place-items:center;color:var(--primary);}
+.method-item .m-ic .ic{width:19px;height:19px;}
+.method-item h4{font-family:var(--sans);font-weight:700;font-size:1rem;margin-bottom:5px;letter-spacing:-.01em;}
+.method-item p{font-size:.9rem;color:var(--text-muted);}
+.method-cite{margin-top:24px;font-size:.875rem;color:var(--text-muted);border-left:2px solid var(--border-strong);padding-left:16px;line-height:1.5;}
+
+/* ============ HOW / TIMELINE ============ */
+.how .section-head{margin-bottom:clamp(40px,5vw,60px);max-width:50ch;}
+.timeline{position:relative;display:grid;gap:0;}
+.timeline::before{
+  content:"";position:absolute;left:25px;top:14px;bottom:14px;width:2px;
+  background:linear-gradient(var(--border-strong),var(--border));
+}
+@media(min-width:680px){.timeline::before{left:31px;}}
+.step{
+  position:relative;display:grid;
+  grid-template-columns:52px 1fr;gap:20px;
+  padding-block:clamp(20px,2.4vw,30px);
+}
+@media(min-width:680px){.step{grid-template-columns:64px 1fr;gap:28px;}}
+.step-num{
+  position:relative;z-index:1;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--border-strong);
+  display:grid;place-items:center;
+  font-family:var(--serif);font-size:1.4rem;color:var(--primary);
+  box-shadow:var(--shadow-sm);
+}
+@media(min-width:680px){.step-num{width:64px;height:64px;font-size:1.7rem;}}
+.step-body{padding-top:6px;}
+.step-body h3{font-family:var(--sans);font-weight:700;font-size:1.1875rem;letter-spacing:-.01em;margin-bottom:7px;}
+.step-body p{color:var(--text-muted);max-width:52ch;}
+.step-body .step-tag{
+  display:inline-block;margin-top:12px;font-size:.8125rem;font-weight:500;
+  color:var(--primary);background:color-mix(in srgb,var(--primary) 9%,transparent);
+  padding:4px 11px;border-radius:999px;
+}
+
+/* ============ AUDIENCE ============ */
+.audience .section-head{margin-bottom:clamp(36px,5vw,56px);max-width:48ch;}
+.aud-grid{display:grid;gap:16px;grid-template-columns:1fr;}
+@media(min-width:760px){.aud-grid{grid-template-columns:repeat(3,1fr);}}
+.aud-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:clamp(24px,2.6vw,32px);display:flex;flex-direction:column;
+  box-shadow:var(--shadow-sm);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.aud-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-strong);}
+.aud-ic{width:44px;height:44px;border-radius:13px;background:var(--surface-2);border:1px solid var(--border);display:grid;place-items:center;color:var(--primary);margin-bottom:20px;}
+.aud-ic .ic{width:22px;height:22px;}
+.aud-card h3{font-family:var(--sans);font-weight:700;font-size:1.1875rem;letter-spacing:-.01em;margin-bottom:10px;}
+.aud-card .aud-role{font-size:.8125rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--primary);margin-bottom:16px;}
+.aud-card>p{color:var(--text-muted);font-size:.9375rem;margin-bottom:20px;}
+.aud-card ul{list-style:none;display:grid;gap:10px;margin-top:auto;}
+.aud-card li{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;}
+.aud-card li .ic{width:16px;height:16px;color:var(--primary);flex:none;margin-top:4px;}
+
+/* ============ WAITLIST ============ */
+.waitlist{}
+.wl-card{
+  position:relative;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:clamp(36px,5vw,72px);box-shadow:var(--shadow-lg);
+  display:grid;gap:32px;grid-template-columns:1fr;align-items:center;
+}
+@media(min-width:820px){.wl-card{grid-template-columns:1.05fr .95fr;gap:56px;}}
+.wl-card h2{margin-bottom:18px;max-width:16ch;}
+.wl-card .lede{font-size:1.0625rem;margin-bottom:0;}
+.wl-form{display:grid;gap:12px;}
+.wl-field{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg);border:1px solid var(--border-strong);border-radius:999px;
+  padding:6px 6px 6px 18px;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.wl-field:focus-within{border-color:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 16%,transparent);}
+.wl-field .ic{width:18px;height:18px;color:var(--text-muted);flex:none;}
+.wl-field input{
+  flex:1;border:none;background:none;outline:none;color:var(--text);
+  font-size:1rem;padding-block:11px;min-width:0;
+}
+.wl-field input::placeholder{color:var(--text-muted);}
+.wl-form .btn-primary{justify-content:center;}
+.wl-fine{font-size:.8125rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
+.wl-fine .ic{width:14px;height:14px;color:var(--primary);flex:none;}
+.wl-success{
+  display:none;align-items:center;gap:12px;
+  background:color-mix(in srgb,var(--primary) 10%,var(--surface));
+  border:1px solid var(--primary);border-radius:var(--r-md);
+  padding:16px 18px;font-size:.9375rem;font-weight:500;
+}
+.wl-success.show{display:flex;}
+.wl-success .ic{width:20px;height:20px;color:var(--primary);flex:none;}
+.wl-stats{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap;}
+.wl-stats .s .n{font-family:var(--serif);font-size:1.6rem;color:var(--text);line-height:1;}
+.wl-stats .s .l{font-size:.8125rem;color:var(--text-muted);margin-top:5px;}
+
+/* ============ FOOTER ============ */
+.footer{border-top:1px solid var(--border);padding-block:clamp(48px,5vw,72px) 36px;}
+.footer-top{display:grid;gap:36px;grid-template-columns:1fr;margin-bottom:48px;}
+@media(min-width:720px){.footer-top{grid-template-columns:1.4fr 1fr 1fr;}}
+.footer .brand .logo{color:var(--primary);}
+.footer-tag{color:var(--text-muted);font-size:.9375rem;margin-top:18px;max-width:34ch;}
+.footer-col h5{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:500;margin-bottom:16px;}
+.footer-col ul{list-style:none;display:grid;gap:11px;}
+.footer-col a{color:var(--text);font-size:.9375rem;opacity:.85;transition:opacity .2s ease, color .2s ease;}
+.footer-col a:hover{opacity:1;color:var(--primary);}
+.footer-bottom{
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+  padding-top:28px;border-top:1px solid var(--hairline);
+  font-size:.875rem;color:var(--text-muted);
+}
+.footer-bottom .meta{display:flex;gap:20px;flex-wrap:wrap;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container container-wide">
+    <a class="brand" href="#top" aria-label="Business Model Factory — Startseite">
+      <svg class="logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2.25" y="2.25" width="27.5" height="27.5" rx="6.5" stroke="currentColor" stroke-width="2"/>
+        <line x1="20" y1="3" x2="20" y2="29" stroke="currentColor" stroke-width="1.4" opacity="0.32"/>
+        <line x1="3" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="1.4" opacity="0.32"/>
+        <path d="M9 9.5 V22.5 H14.4 a4 4 0 0 0 0.4 -8 a3.6 3.6 0 0 0 -0.4 -5 Z M9 9.5 H13.9" fill="none"/>
+        <path d="M9.4 10 V22 H14.2 a3.5 3.5 0 0 0 0.2 -7 H9.4 M9.4 15 H13.7 a3 3 0 0 0 0.1 -5 H9.4" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="24.5" cy="9.5" r="1.5" fill="currentColor"/>
+        <circle cx="24.5" cy="16" r="1.5" fill="currentColor"/>
+        <circle cx="24.5" cy="22.5" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="brand-name">Business Model Factory</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      <a href="#features">Features</a>
+      <a href="#methodik">Methodik</a>
+      <a href="Produkt-Tour.html">Tool ansehen</a>
+      <a href="#how">So funktioniert's</a>
+      <a href="#preise">Preise</a>
+    </nav>
+
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Farbschema wechseln" title="Hell / Dunkel">
+        <svg class="ic ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="ic ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-cta" href="#waitlist">Early Access</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero section-pad">
+    <div class="container">
+      <span class="hero-badge reveal"><span class="dot"></span> Early Access · DACH-Markt · Q3 2026</span>
+      <h1 class="display reveal">Vom Markt. Von Daten. Von Wissenschaft. <span class="soft">Nicht von Bauchgefühl.</span></h1>
+      <p class="lede reveal">Business Model Factory prüft deine Idee gegen echte Marktdaten, wissenschaftliche Paper und aktuelle Trends – und zeigt dir, wie du dich differenzierst.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary btn-lg" href="#waitlist">Jetzt Early Access sichern <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="Produkt-Tour.html">Demo ansehen</a>
+      </div>
+      <p class="hero-note reveal"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Kein Login nötig zum Ausprobieren · Validierung in unter 10 Minuten</p>
+
+      <div class="hero-proof reveal">
+        <div class="proof-stat"><div class="num">5 Quellen</div><div class="lbl">SSRN, OpenAlex, Reddit, GitHub &amp; Hugging Face parallel durchsucht</div></div>
+        <div class="proof-stat"><div class="num">~9 Min.</div><div class="lbl">von der Idee zum belegten Differenzierungs­report</div></div>
+        <div class="proof-stat"><div class="num">40+ Programme</div><div class="lbl">Fördermittel-Datenbank für EXIST, EIC, Distr@l &amp; Co.</div></div>
+        <div class="proof-stat"><div class="num">Stress-Test</div><div class="lbl">KI-Gegenanfragen nach Haaker&nbsp;et&nbsp;al.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="problem section-pad" aria-labelledby="problem-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Das Problem</span>
+        <h2 class="h2" id="problem-title">Die meisten Geschäftsmodelle scheitern nicht an der Idee –<br><span class="serif-em">sondern an ungeprüften Annahmen.</span></h2>
+      </div>
+
+      <div class="problem-grid">
+        <article class="p-card wide reveal">
+          <div>
+            <div class="p-stat">42%</div>
+            <h3>Kein Marktbedarf – der häufigste Grund für ein Aus.</h3>
+            <p>Die meistgenannte Ursache für gescheiterte Startups ist nicht das Team und nicht das Geld, sondern ein Produkt, das niemand braucht. Trotzdem startet die Marktrecherche bei den meisten Gründern erst, wenn schon gebaut wurde.</p>
+          </div>
+          <div class="p-source">Quelle: CB Insights, „Top Reasons Startups Fail“</div>
+        </article>
+
+        <article class="p-card b reveal">
+          <div class="p-stat">11 h</div>
+          <h3>pro Woche in manueller Recherche</h3>
+          <p>Paper, Foren, Repos, Förderdatenbanken – verstreut, unstrukturiert, schnell veraltet.</p>
+        </article>
+
+        <article class="p-card c reveal">
+          <div class="p-stat">0</div>
+          <h3>belastbare Gegenargumente</h3>
+          <p>Pitch-Decks bestätigen die eigene These. Niemand testet sie systematisch auf Bruchstellen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="features section-pad" id="features" aria-labelledby="features-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Features</span>
+        <h2 class="h2" id="features-title">Vier Werkzeuge, ein durchgängiger Validierungs-Workflow.</h2>
+      </div>
+
+      <!-- Feature 1 -->
+      <div class="feature-row">
+        <div class="f-copy reveal">
+          <span class="f-index">01</span>
+          <h3 class="h3">Research Engine</h3>
+          <p>Gib deine Idee in einem Satz ein. Die Research Engine durchsucht SSRN, OpenAlex, Reddit, GitHub und Hugging Face parallel und verdichtet hunderte Treffer zu belegten Erkenntnissen – mit Quellenangabe.</p>
+          <div class="f-tags">
+            <span class="f-tag">SSRN</span><span class="f-tag">OpenAlex</span><span class="f-tag">Reddit</span><span class="f-tag">GitHub</span><span class="f-tag">Hugging Face</span>
+          </div>
+        </div>
+        <div class="f-visual reveal">
+          <div class="mock-head"><span class="mock-title">Research-Lauf</span><span class="mock-dot-live"><span class="d"></span> live</span></div>
+          <div class="src-row"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><div class="src-name">SSRN</div><div class="src-meta">214 Paper · 8 relevant</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+          <div class="src-row"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 0 0 18M12 3a14 14 0 0 1 0 18"/></svg></div><div><div class="src-name">OpenAlex</div><div class="src-meta">1.402 Werke · 31 zitiert</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+          <div class="src-row"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><div class="src-name">Reddit</div><div class="src-meta">6 Subreddits · Sentiment +</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+          <div class="src-row pending"><div class="src-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg></div><div><div class="src-name">GitHub</div><div class="src-meta">analysiert …</div></div><div class="src-check"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg></div></div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-row reverse">
+        <div class="f-copy reveal">
+          <span class="f-index">02</span>
+          <h3 class="h3">DE/US Trend-Vergleich</h3>
+          <p>Viele Märkte folgen den USA mit Verzögerung. Business Model Factory misst diesen Zeitversatz für deine Kategorie – und zeigt dir, wie viel Vorsprung im DACH-Markt realistisch noch offen ist.</p>
+          <div class="f-tags"><span class="f-tag">Zeitversatz-Analyse</span><span class="f-tag">Kategorie-Benchmarks</span><span class="f-tag">Markteintritts-Timing</span></div>
+        </div>
+        <div class="f-visual reveal">
+          <div class="mock-head"><span class="mock-title">Trend-Versatz · Vertical AI</span></div>
+          <div class="trend-wrap">
+            <div class="trend-axis">
+              <div class="trend-pt us" style="left:24%"><span class="lab top">US-Adoption</span><span class="pin"></span><span class="lab bot">Q1 ’24</span></div>
+              <div class="trend-pt" style="left:78%"><span class="lab top" style="color:var(--primary)">DACH-Adoption</span><span class="pin"></span><span class="lab bot">Q3 ’25</span></div>
+            </div>
+            <div class="trend-gap"><b>+14</b> Monate Vorsprung-Fenster im DACH-Markt</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-row">
+        <div class="f-copy reveal">
+          <span class="f-index">03</span>
+          <h3 class="h3">Canvas + Stress-Test</h3>
+          <p>Fülle den interaktiven Business Model Canvas aus – und lass ihn von der KI angreifen. Jeder Baustein wird mit gezielten Gegenanfragen konfrontiert, bis nur belastbare Annahmen übrig bleiben.</p>
+          <div class="f-tags"><span class="f-tag">9 Canvas-Bausteine</span><span class="f-tag">KI-Gegenanfragen</span><span class="f-tag">Annahmen-Tracking</span></div>
+        </div>
+        <div class="f-visual reveal">
+          <div class="mock-head"><span class="mock-title">Business Model Canvas</span></div>
+          <div class="canvas-grid">
+            <div class="cv-cell">Partner</div>
+            <div class="cv-cell active">Value Proposition</div>
+            <div class="cv-cell">Kundensegment</div>
+            <div class="cv-cell">Ressourcen</div>
+            <div class="cv-cell">Kanäle</div>
+            <div class="cv-cell">Beziehung</div>
+            <div class="cv-cell span2">Kostenstruktur</div>
+            <div class="cv-cell">Erlöse</div>
+          </div>
+          <div class="stress-bubble">
+            <div class="av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></div>
+            <p><b>Gegenfrage:</b> Dein Nutzenversprechen setzt voraus, dass Kanzleien intern keine Lösung bauen. Welche Evidenz hast du dafür?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-row reverse">
+        <div class="f-copy reveal">
+          <span class="f-index">04</span>
+          <h3 class="h3">Fördermittel-Matching</h3>
+          <p>Aus deinem geprüften Modell leitet Business Model Factory passende Förderprogramme ab – mit Match-Score, Fristen und Antrags-Voraussetzungen. EXIST, EIC, Distr@l und über 40 weitere.</p>
+          <div class="f-tags"><span class="f-tag">EXIST</span><span class="f-tag">EIC Accelerator</span><span class="f-tag">Distr@l</span><span class="f-tag">+40 Programme</span></div>
+        </div>
+        <div class="f-visual reveal">
+          <div class="mock-head"><span class="mock-title">Förder-Matches</span></div>
+          <div class="fund-row"><div><div class="fund-name">EXIST-Gründerstipendium</div><div class="fund-desc">Hochschulnahe Ausgründung · BMWK</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:94%"></div></div><span class="fund-pct">94%</span></div></div>
+          <div class="fund-row"><div><div class="fund-name">EIC Accelerator</div><div class="fund-desc">Deep-Tech · Europäische Kommission</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:81%"></div></div><span class="fund-pct">81%</span></div></div>
+          <div class="fund-row"><div><div class="fund-name">Distr@l</div><div class="fund-desc">Digitalisierung · Land Hessen</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:67%"></div></div><span class="fund-pct">67%</span></div></div>
+          <div class="fund-row"><div><div class="fund-name">go-digital</div><div class="fund-desc">Digitale Markterschließung · BMWK</div></div><div class="fund-bar"><div class="fund-track"><div class="fund-fill" style="width:58%"></div></div><span class="fund-pct">58%</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METHODIK ============ -->
+  <section class="methodik section-pad" id="methodik" aria-labelledby="methodik-title">
+    <div class="container">
+      <div class="methodik-inner">
+        <div class="reveal">
+          <span class="eyebrow">Methodik</span>
+          <h2 class="h2" id="methodik-title" style="margin-top:18px;">Validierung mit wissenschaftlichem Unterbau.</h2>
+          <p class="lede">Business Model Factory ist kein Ideen-Generator. Jede Bewertung folgt zwei etablierten Forschungsrahmen – nachvollziehbar und reproduzierbar.</p>
+          <p class="method-cite">Der Stress-Test-Modus operationalisiert das <em>Business Model Stress Testing</em> nach Haaker, Bouwman, Janssen &amp; de Reuver (2017): Geschäftsmodelle werden systematisch gegen unsichere Zukunfts­szenarien getestet, statt nur intern plausibilisiert zu werden.</p>
+        </div>
+
+        <div class="method-list reveal">
+          <div class="method-item">
+            <div class="m-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+            <div><h4>Design Science Research</h4><p>Das Tool selbst folgt dem DSR-Paradigma: Es ist ein Artefakt, das ein reales Gründungs­problem löst und iterativ evaluiert wird – nicht eine Sammlung von Best-Practice-Tipps.</p></div>
+          </div>
+          <div class="method-item">
+            <div class="m-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+            <div><h4>Szenario-basiertes Stress Testing</h4><p>Robustheits-Check jedes Canvas-Bausteins gegen unsichere Markt-, Technologie- und Regulierungs­szenarien – nach Haaker et al.</p></div>
+          </div>
+          <div class="method-item">
+            <div class="m-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v8l-7 12h18L14 10V2"/><path d="M7 2h10"/></svg></div>
+            <div><h4>Evidenz vor Meinung</h4><p>Jede Aussage im Report ist auf eine konkrete Quelle zurückführbar. Keine Bewertung ohne nachvollziehbaren Beleg.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how section-pad" id="how" aria-labelledby="how-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">So funktioniert's</span>
+        <h2 class="h2" id="how-title">Von der ersten Idee zum geprüften Report – in vier Schritten.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Idee eingeben</h3>
+            <p>Beschreibe dein Vorhaben in ein, zwei Sätzen. Mehr braucht es nicht – Branche, Zielgruppe und Kern­nutzen erkennt das System selbst.</p>
+            <span class="step-tag">~30 Sekunden</span>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Research läuft automatisch</h3>
+            <p>Die Research Engine durchsucht parallel Paper, Foren, Repos und Förderdatenbanken und verdichtet die Treffer zu einer belegten Ausgangslage.</p>
+            <span class="step-tag">vollautomatisch im Hintergrund</span>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Canvas interaktiv ausfüllen &amp; debattieren</h3>
+            <p>Du füllst den Business Model Canvas Baustein für Baustein – die KI hält mit gezielten Gegenanfragen dagegen, bis deine Annahmen tragen.</p>
+            <span class="step-tag">Stress-Test-Modus</span>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Report + Förder-Matching erhalten</h3>
+            <p>Am Ende steht ein nachvollziehbarer Differenzierungs-Report mit Quellen – plus eine sortierte Liste passender Förderprogramme.</p>
+            <span class="step-tag">exportierbar als PDF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIENCE ============ -->
+  <section class="audience section-pad" aria-labelledby="aud-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Für wen</span>
+        <h2 class="h2" id="aud-title">Gebaut für alle, die ihre Idee belegen müssen – nicht nur behaupten.</h2>
+      </div>
+
+      <div class="aud-grid">
+        <article class="aud-card reveal">
+          <div class="aud-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></div>
+          <div class="aud-role">KI-Gründer</div>
+          <h3>Schnell, aber belegbar</h3>
+          <p>Du baust an einem KI-Produkt und musst in Tagen entscheiden, nicht in Quartalen. Trotzdem soll die Story vor Investoren halten.</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Differenzierung gegen bestehende Tools</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Trend-Timing für den Markteintritt</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Investoren-feste Annahmen</li>
+          </ul>
+        </article>
+
+        <article class="aud-card reveal">
+          <div class="aud-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></div>
+          <div class="aud-role">Masteranden &amp; Forschende</div>
+          <h3>Methodisch sauber</h3>
+          <p>Deine Abschluss­arbeit oder Forschung verlangt eine nachvollziehbare Methodik. Bauchgefühl zählt hier nicht – Quellen schon.</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Zitierbare Paper aus SSRN &amp; OpenAlex</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> DSR- &amp; Stress-Testing-Rahmen</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Reproduzierbare Bewertung</li>
+          </ul>
+        </article>
+
+        <article class="aud-card reveal">
+          <div class="aud-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div class="aud-role">Legal-Tech-Berater</div>
+          <h3>Vertrauenswürdig nach außen</h3>
+          <p>Du berätst Mandanten zu Geschäfts­modellen und brauchst Aussagen, die einer kritischen Prüfung standhalten – inklusive Förderfähigkeit.</p>
+          <ul>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Belegte Markteinschätzung für Mandate</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Fördermittel-Eignung auf einen Blick</li>
+            <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Exportierbare Reports für Mandanten</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WAITLIST ============ -->
+  <section class="waitlist section-pad" id="waitlist" aria-labelledby="wl-title">
+    <div class="container container-wide">
+      <div class="wl-card reveal">
+        <div>
+          <span class="eyebrow">Early Access</span>
+          <h2 class="h2" id="wl-title" style="margin-top:18px;">Sei dabei, bevor deine Idee jemand anders validiert.</h2>
+          <p class="lede">Wir öffnen den Zugang in kleinen Wellen, damit jeder Gründer echtes Feedback bekommt. Trag dich ein – wir melden uns persönlich, sobald dein Platz frei ist. Keine Newsletter-Flut, kein Spam.</p>
+          <div class="wl-stats">
+            <div class="s"><div class="n">1.240+</div><div class="l">auf der Warteliste</div></div>
+            <div class="s"><div class="n">Q3 2026</div><div class="l">Start im DACH-Raum</div></div>
+          </div>
+        </div>
+
+        <div>
+          <form class="wl-form" id="wlForm" novalidate>
+            <div class="wl-field">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <input type="email" id="wlEmail" name="email" placeholder="deine@email.de" autocomplete="email" required aria-label="E-Mail-Adresse" />
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Platz auf der Warteliste sichern <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="wl-fine"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Nur eine persönliche Nachricht, wenn dein Zugang bereitsteht.</p>
+          </form>
+          <div class="wl-success" id="wlSuccess" role="status">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+            <span>Danke – du stehst auf der Liste. Wir melden uns persönlich.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="preise">
+  <div class="container container-wide">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="#top" aria-label="Business Model Factory">
+          <svg class="logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="2.25" y="2.25" width="27.5" height="27.5" rx="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="20" y1="3" x2="20" y2="29" stroke="currentColor" stroke-width="1.4" opacity="0.32"/>
+            <line x1="3" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="1.4" opacity="0.32"/>
+            <path d="M9.4 10 V22 H14.2 a3.5 3.5 0 0 0 0.2 -7 H9.4 M9.4 15 H13.7 a3 3 0 0 0 0.1 -5 H9.4" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="24.5" cy="9.5" r="1.5" fill="currentColor"/>
+            <circle cx="24.5" cy="16" r="1.5" fill="currentColor"/>
+            <circle cx="24.5" cy="22.5" r="1.5" fill="currentColor"/>
+          </svg>
+          <span class="brand-name">Business Model Factory</span>
+        </a>
+        <p class="footer-tag">Deine Geschäftsidee. Wissenschaftlich geprüft. In Minuten.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Produkt</h5>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#methodik">Methodik</a></li>
+          <li><a href="#how">So funktioniert's</a></li>
+          <li><a href="#waitlist">Early Access</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Ressourcen</h5>
+        <ul>
+          <li><a href="https://www.exist.de" target="_blank" rel="noopener noreferrer">EXIST-Förderung</a></li>
+          <li><a href="https://eic.ec.europa.eu" target="_blank" rel="noopener noreferrer">EIC Accelerator</a></li>
+          <li><a href="https://openalex.org" target="_blank" rel="noopener noreferrer">OpenAlex</a></li>
+          <li><a href="https://www.ssrn.com" target="_blank" rel="noopener noreferrer">SSRN</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Business Model Factory. Alle Rechte vorbehalten.</span>
+      <div class="meta">
+        <a href="#">Datenschutz</a>
+        <a href="#">Impressum</a>
+        <a href="#">Kontakt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function(){
+  "use strict";
+
+  /* ---- Theme toggle (no localStorage) ---- */
+  var html = document.documentElement;
+  try{
+    if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
+      html.setAttribute("data-theme","dark");
+    }
+  }catch(e){}
+  var toggle = document.getElementById("themeToggle");
+  if(toggle){
+    toggle.addEventListener("click", function(){
+      var now = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", now);
+      toggle.setAttribute("aria-label", now === "dark" ? "Zu hellem Schema wechseln" : "Zu dunklem Schema wechseln");
+    });
+  }
+
+  /* ---- Nav shadow on scroll ---- */
+  var nav = document.getElementById("nav");
+  function onScroll(){
+    if(window.scrollY > 8){ nav.classList.add("scrolled"); }
+    else{ nav.classList.remove("scrolled"); }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* ---- Reveal on scroll ---- */
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reveals = document.querySelectorAll(".reveal");
+  if(reduce || !("IntersectionObserver" in window)){
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:0.08, rootMargin:"0px 0px -6% 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+    // Failsafe: reveal anything already in the viewport on load, and
+    // guarantee nothing stays permanently hidden if IO never fires.
+    function revealInView(){
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      reveals.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if(r.top < vh && r.bottom > 0){ el.classList.add("in"); }
+      });
+    }
+    requestAnimationFrame(revealInView);
+    window.addEventListener("load", revealInView);
+  }
+
+  /* ---- Waitlist (no storage, in-page confirmation) ---- */
+  var form = document.getElementById("wlForm");
+  var success = document.getElementById("wlSuccess");
+  if(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var email = document.getElementById("wlEmail");
+      if(!email.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+        email.focus();
+        email.parentElement.style.borderColor = "#c2410c";
+        return;
+      }
+      form.style.display = "none";
+      success.classList.add("show");
+    });
+  }
+
+  /* ---- Lucide (in case any data-icons added later) ---- */
+  if(window.lucide && window.lucide.createIcons){ window.lucide.createIcons(); }
+})();
+</script>
+</body>
+</html>
