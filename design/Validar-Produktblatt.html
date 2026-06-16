@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Validar — Produktblatt &amp; Funktionsumfang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#fbfbf9; --surface:#ffffff; --surface-2:#f4f3ef;
+  --ink:#16150f; --muted:#6b6a63; --faint:#a4a39b;
+  --line:rgba(22,21,15,.11); --line-strong:rgba(22,21,15,.18);
+  --accent:#0a5d62;
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);background:var(--faint);color:var(--ink);line-height:1.5;font-size:14px;-webkit-font-smoothing:antialiased;padding:24px;}
+svg{display:block;}
+ul{list-style:none;}
+.sheet{width:210mm;max-width:100%;min-height:297mm;margin:0 auto 24px;background:var(--bg);padding:11mm 13mm;box-shadow:0 10px 40px -12px rgba(0,0,0,.35);}
+
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:16px;border-bottom:1px solid var(--line-strong);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand .logo{width:34px;height:34px;color:var(--accent);flex:none;}
+.brand .nm{font-family:var(--serif);font-size:30px;line-height:1;letter-spacing:-.01em;}
+.brand .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.head-meta{text-align:right;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.7;}
+.head-meta .ea{display:inline-block;margin-top:6px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:5px;padding:3px 8px;}
+
+.lead{padding:18px 0 4px;}
+.lead h1{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.015em;max-width:26ch;}
+.lead h1 .ac{color:var(--accent);font-style:italic;}
+.lead p{color:var(--muted);font-size:13px;margin-top:10px;max-width:70ch;}
+
+.body{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;margin-top:18px;}
+.eyebrow{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:9px;margin-bottom:10px;}
+.eyebrow::before{content:"";width:16px;height:1px;background:currentColor;opacity:.7;}
+.block{margin-bottom:16px;}
+.block > p{font-size:12.5px;color:var(--ink);line-height:1.55;}
+.flow{display:grid;gap:7px;}
+.flow .st{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;}
+.flow .n{font-family:var(--mono);font-size:10px;color:var(--accent);font-weight:600;}
+.flow .t{font-size:12px;}
+.flow .t small{color:var(--muted);font-size:11px;}
+.feat{display:grid;gap:9px;}
+.feat li{display:grid;grid-template-columns:auto 1fr;gap:9px;font-size:12px;line-height:1.45;}
+.feat li svg{width:13px;height:13px;color:var(--accent);margin-top:2px;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:14px 15px;margin-bottom:12px;}
+.card h3{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:11px;}
+.kf{display:grid;gap:8px;}
+.kf .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:8px;}
+.kf .row:first-child{border-top:none;padding-top:0;}
+.kf .row .v{font-family:var(--mono);font-weight:600;font-size:12px;white-space:nowrap;}
+.kf .row .l{font-size:11.5px;color:var(--muted);}
+.aud li{font-size:11.5px;padding:7px 0;border-top:1px solid var(--line);}
+.aud li:first-child{border-top:none;}
+.aud li b{display:block;font-weight:600;font-size:12px;}
+.aud li span{color:var(--muted);}
+.price{display:grid;gap:9px;}
+.price .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+.price .t .nm{font-size:11.5px;}
+.price .t .nm small{display:block;color:var(--muted);font-size:10.5px;}
+.price .t .pr{font-family:var(--serif);font-size:18px;white-space:nowrap;}
+.price .t.rec .pr{color:var(--accent);}
+.price .note{font-size:10.5px;color:var(--muted);margin-top:2px;}
+.refs{display:grid;gap:7px;}
+.refs li{font-size:11px;color:var(--muted);line-height:1.4;}
+.refs li b{color:var(--ink);font-weight:600;}
+.foot{margin-top:18px;padding-top:14px;border-top:1px solid var(--line-strong);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--muted);}
+.foot a{color:var(--accent);}
+
+/* function appendix */
+.fn-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line-strong);padding-bottom:12px;margin-bottom:18px;}
+.fn-head .ttl{font-family:var(--serif);font-size:24px;}
+.fn-head .meta{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.fn-grid{columns:2;column-gap:24px;}
+.fn-group{break-inside:avoid;margin-bottom:15px;}
+.fn-group h3{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.fn-group h3 .ix{color:var(--faint);}
+.fn-group ul{display:grid;gap:5px;}
+.fn-group li{display:grid;grid-template-columns:auto 1fr;gap:8px;font-size:11px;line-height:1.4;color:var(--ink);}
+.fn-group li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent);margin-top:6px;}
+.fn-group li b{font-weight:600;}
+
+@media print{
+  body{background:#fff;padding:0;}
+  .sheet{box-shadow:none;width:auto;min-height:auto;margin:0;padding:8mm 11mm;}
+  .sheet + .sheet{page-break-before:always;}
+  @page{size:A4;margin:0;}
+  .head{padding-bottom:11px;}
+  .lead{padding:11px 0 2px;}
+  .lead h1{font-size:24px;}
+  .lead p{margin-top:7px;font-size:12px;}
+  .body{margin-top:12px;gap:18px;}
+  .block{margin-bottom:10px;}
+  .flow{gap:6px;}
+  .feat{gap:7px;}
+  .card{padding:12px 14px;margin-bottom:10px;}
+  .foot{margin-top:11px;padding-top:9px;}
+  .fn-head{margin-bottom:12px;padding-bottom:9px;}
+  .fn-group{margin-bottom:10px;}
+  .fn-group li{font-size:10.5px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ SEITE 1 · PRODUKTBLATT ============ -->
+<div class="sheet">
+  <header class="head">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2.25" y="2.25" width="27.5" height="27.5" rx="6.5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16.2" r="9.4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="16" cy="16.2" r="5" stroke="currentColor" stroke-width="1.5" opacity="0.85"/>
+        <path d="M16 16.2 L24.3 10.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="21.6" cy="12.2" r="1.7" fill="currentColor"/>
+        <circle cx="16" cy="16.2" r="2" fill="currentColor"/>
+      </svg>
+      <div><div class="nm">Validar</div><div class="tag">Validation + Radar</div></div>
+    </div>
+    <div class="head-meta">Produktblatt<br>Stand: Q3 2026 · DACH<br><span class="ea">Early Access</span></div>
+  </header>
+
+  <div class="lead">
+    <h1>Deine Geschäftsidee. Wissenschaftlich geprüft. <span class="ac">Risiken schonungslos aufgedeckt.</span></h1>
+    <p>Validar validiert Geschäftsmodelle <b>empirisch</b> – für Produkt-, Beratungs- und Hybrid-Modelle. Es verbindet automatische Marktforschung, einen interaktiven Canvas mit KI-Stress-Test und eine strukturierte Risikoanalyse (Risk Radar™), spezialisiert auf den DACH-Markt.</p>
+  </div>
+
+  <div class="body">
+    <div class="main">
+      <div class="block">
+        <div class="eyebrow">Der Workflow · 9 Module</div>
+        <div class="flow">
+          <div class="st"><span class="n">01</span><span class="t"><b>Idee &amp; KI-Sparring</b> — <small>geführter Pitch: Validar stellt Fragen statt leerem Eingabefeld</small></span></div>
+          <div class="st"><span class="n">02</span><span class="t"><b>Research Engine</b> — <small>SSRN, OpenAlex, Reddit, GitHub, Hugging Face parallel</small></span></div>
+          <div class="st"><span class="n">03</span><span class="t"><b>Markt &amp; Wettbewerb</b> — <small>Marktgröße, DE/US-Trend-Versatz, Wettbewerbsprofile</small></span></div>
+          <div class="st"><span class="n">04</span><span class="t"><b>Canvas + Stress-Test</b> — <small>9 Bausteine, KI-Gegenanfragen nach Haaker et al.</small></span></div>
+          <div class="st"><span class="n">05</span><span class="t"><b>Buying Center</b> — <small>B2B-Entscheidungseinheit + KI-Personas, Stress-Test je Rolle</small></span></div>
+          <div class="st"><span class="n">06</span><span class="t"><b>Risk Radar™ + Go/No-Go-Gate</b> — <small>8 Kategorien (10-K-inspiriert) + Schwellen-Flaggen</small></span></div>
+          <div class="st"><span class="n">07</span><span class="t"><b>Kalkulation</b> — <small>SaaS-Preismodell, Dienstleistungs-Kalkulation, Productized Service</small></span></div>
+          <div class="st"><span class="n">08</span><span class="t"><b>Fördermittel-Matching</b> — <small>EXIST, EIC, Distr@l &amp; 40+ Programme mit Match-Score</small></span></div>
+          <div class="st"><span class="n">09</span><span class="t"><b>Report &amp; Vorlagen</b> — <small>Differenzierungs-Report, Geschäftsplan, Pitch-Deck – KI-befüllt</small></span></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="eyebrow">Was Validar besonders macht</div>
+        <ul class="feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Schonungslose Risikoanalyse:</b> Risk Radar™ in 8 Kategorien plus Go/No-Go-Gate mit roten Flaggen – ohne hartes Urteil, die Entscheidung bleibt beim Gründer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Produkt + Beratung + Hybrid:</b> ein Typ-Schalter steuert alle Module – inkl. Tagessatz-/Auslastungs-Kalkulation und Productized-Service-Designer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>DACH-Spezialisierung:</b> deutsche Datenquellen, Geschäftsmodell-Vokabular und Förderprogramme aus dem DACH-Raum.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Jede Funktion KI-getrieben &amp; belegt:</b> jede Aussage ist auf eine Quelle zurückführbar – kein Black-Box-Orakel.</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="eyebrow">Methodischer Unterbau</div>
+        <ul class="refs">
+          <li><b>Design Science Research</b> (Hevner et al.) — Artefaktentwicklung &amp; iterative Evaluation</li>
+          <li><b>Business Model Stress Testing</b> (Haaker, Bouwman, Janssen &amp; de Reuver, TU Delft 2017) — szenariobasierte Robustheitsprüfung</li>
+          <li><b>SEC Form 10-K · Item 1A</b> — strukturierte Risikokategorisierung, übertragen auf die Gründungsphase</li>
+        </ul>
+      </div>
+    </div>
+    <div class="side">
+      <div class="card">
+        <h3>Auf einen Blick</h3>
+        <div class="kf">
+          <div class="row"><span class="l">Datenquellen parallel</span><span class="v">5+</span></div>
+          <div class="row"><span class="l">Idee → belegter Report</span><span class="v">~9 Min.</span></div>
+          <div class="row"><span class="l">Risikokategorien</span><span class="v">8</span></div>
+          <div class="row"><span class="l">Förderprogramme</span><span class="v">40+</span></div>
+          <div class="row"><span class="l">In-App-Module</span><span class="v">9</span></div>
+          <div class="row"><span class="l">Markt</span><span class="v">DACH</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Für wen</h3>
+        <ul class="aud">
+          <li><b>Self-Service</b><span>KI-Gründer, Solopreneure, Masteranden</span></li>
+          <li><b>Enterprise</b><span>IHKs, Acceleratoren, Legal-Tech-Beratungen</span></li>
+          <li><b>Academic</b><span>Hochschulen, Lehrende, Forschung</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Preise</h3>
+        <div class="price">
+          <div class="t"><span class="nm">Starter<small>Gründer &amp; Masteranden</small></span><span class="pr">€ 0</span></div>
+          <div class="t rec"><span class="nm">Pro<small>aktive Gründer &amp; Berater</small></span><span class="pr">€ 59</span></div>
+          <div class="t"><span class="nm">Team<small>Workspaces &amp; Export</small></span><span class="pr">€ 149</span></div>
+          <p class="note">Pro/Team monatlich. Organisationslizenzen &amp; öffentliche Ausschreibung (DTVP, evergabe.de) auf Anfrage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>© 2026 Validar · Geschäftsmodelle. Empirisch validiert.</span>
+    <span>Early Access: <a href="#">validar.de</a> · Start Q3 2026 (DACH)</span>
+  </footer>
+</div>
+
+<!-- ============ SEITE 2 · FUNKTIONSUMFANG ============ -->
+<div class="sheet">
+  <div class="fn-head">
+    <span class="ttl">Vollständiger Funktionsumfang</span>
+    <span class="meta">Validar · alle Funktionen</span>
+  </div>
+
+  <div class="fn-grid">
+    <div class="fn-group">
+      <h3><span class="ix">A</span> Idee &amp; Einstieg</h3>
+      <ul>
+        <li><b>Geführtes KI-Sparring</b> – dialogbasierte Ideenschärfung mit Fragen &amp; Vorschlags-Chips</li>
+        <li><b>Twitter-Pitch</b> (1 Satz) als Ergebnis, mit Zeichen- &amp; Sprachprüfung</li>
+        <li><b>Auto-Erkennung</b>: Branche, Zielgruppe, Region, Modell, Rechtsform-Tendenz</li>
+        <li><b>Geschäftsmodell-Typ-Schalter</b>: Produkt / Beratung / Hybrid (steuert alle Module)</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">B</span> Research Engine</h3>
+      <ul>
+        <li>Parallele Quellensuche: SSRN, OpenAlex, Reddit, GitHub, Hugging Face, LinkedIn</li>
+        <li>Verdichtung zu belegten Erkenntnissen mit Quellenangabe</li>
+        <li>Erkenntnis-Karten mit Quellen-Tags &amp; Live-Fortschritt</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">C</span> Markt &amp; Wettbewerb</h3>
+      <ul>
+        <li>Marktgröße: TAM / SAM / SOM</li>
+        <li>DE/US-Trend-Vergleich: Zeitversatz &amp; Vorsprung-Fenster</li>
+        <li>Wettbewerbsprofile &amp; US-Transfer-Empfehlung</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">D</span> Canvas + Stress-Test</h3>
+      <ul>
+        <li>Interaktiver Business Model Canvas (9 Bausteine) mit Research-Vorschlägen</li>
+        <li>KI-Stress-Test / Debattiermodus: Gegenanfragen je Annahme</li>
+        <li>Annahmen-Tracking + Risiko-Flaggen je Baustein</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">E</span> Buying Center (B2B)</h3>
+      <ul>
+        <li>KI-generierte Entscheidungseinheit: Macht-/Fachpromotor, Beeinflusser, Nutzer</li>
+        <li>KI-Personas je Rolle mit Kaufkriterien &amp; Einfluss</li>
+        <li>Stress-Test aus jeder Persona-Rolle</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">F</span> Risk Radar™ + Go/No-Go-Gate</h3>
+      <ul>
+        <li>8 Risikokategorien mit Score, Leitfrage, Befund, Gegenmaßnahme</li>
+        <li>Gesamt-Risiko-Score</li>
+        <li>Beratungs-Zusatzrisiken (Hybrid): Personenabhängigkeit, Auslastung, Skalierbarkeit, Delivery-Qualität</li>
+        <li>Go/No-Go-Gate: Schwellen-Check &amp; rote Flaggen mit „Nachschärfen" – kein hartes Urteil</li>
+        <li>10-K-Export</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">G</span> Kalkulation (Hybrid)</h3>
+      <ul>
+        <li>Modus Produkt / Beratung / Hybrid</li>
+        <li><b>SaaS-Preismodell</b>: Zahlungsbereitschafts-Band, KI-Preisempfehlung, Tiers + Deckungsbeitrag</li>
+        <li><b>Dienstleistungs-Kalkulation</b>: Tagessatz, Auslastung, abrechenbare Tage, Delivery-Kosten, Projektmarge, Umsatz/Berater</li>
+        <li><b>Productized-Service-Designer</b>: Festpaket (Fixscope, Aufwandsdeckel), Vorher/Nachher-Kennzahlen</li>
+        <li>P&amp;L: Annahmen mit Konfidenz/Quelle, Deckungsbeitrag, Break-even, Kapitalbedarf/Runway</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">H</span> Fördermittel-Matching</h3>
+      <ul>
+        <li>Automatisches Matching: EXIST, EIC Accelerator, Distr@l, Forschungszulage &amp; 40+ Programme</li>
+        <li>Match-Score je Programm</li>
+        <li>Fristen, Antrags-Voraussetzungen &amp; Fristreminder</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">I</span> Methoden-Bibliothek</h3>
+      <ul>
+        <li>KI-kuratierte Methoden: Strategie, Markt &amp; Vertrieb, Prozess &amp; Service, Finanzen &amp; Risiko</li>
+        <li>Methodenvorschlag je Fragestellung &amp; Phase</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">J</span> Report &amp; Export</h3>
+      <ul>
+        <li>Belegter Differenzierungs-Report mit Validierungs-Score &amp; Quellen</li>
+        <li>Report-Vorlagen: Differenzierungs-Report, Geschäftsplan, Pitch-Deck-Gerüst, Förderantrag-Anlage (KI-befüllt)</li>
+        <li>PDF-Export (10-K-Format) &amp; Pitch-Deck-Gerüst</li>
+      </ul>
+    </div>
+    <div class="fn-group">
+      <h3><span class="ix">K</span> System &amp; Organisation</h3>
+      <ul>
+        <li>Dark/Light-Modus</li>
+        <li>DACH-Spezialisierung: Datenquellen, Vokabular, Förderprogramme</li>
+        <li>Evidenz vor Meinung: Quellenbeleg je Aussage</li>
+        <li>Tracks: Self-Service / Enterprise / Academic</li>
+        <li>Mehrnutzer &amp; Workspaces, White-Label, Ausschreibungs-Support (DTVP, evergabe.de)</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>© 2026 Validar · Funktionsumfang (Early Access, Stand Q3 2026)</span>
+    <span>Änderungen vorbehalten</span>
+  </footer>
+</div>
+
+</body>
+</html>
