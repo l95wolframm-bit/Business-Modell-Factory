@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Validar — Deep-Research-Briefing: Datenquellen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#fbfbf9; --surface:#ffffff; --surface-2:#f4f3ef;
+  --ink:#16150f; --muted:#6b6a63; --faint:#a4a39b;
+  --line:rgba(22,21,15,.11); --line-strong:rgba(22,21,15,.18);
+  --accent:#0a5d62;
+  --serif:"Instrument Serif",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);background:var(--faint);color:var(--ink);line-height:1.5;font-size:13px;-webkit-font-smoothing:antialiased;padding:24px;}
+svg{display:block;} ul{list-style:none;}
+.sheet{width:210mm;max-width:100%;min-height:297mm;margin:0 auto 24px;background:var(--bg);padding:11mm 13mm;box-shadow:0 10px 40px -12px rgba(0,0,0,.35);}
+
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:13px;border-bottom:1px solid var(--line-strong);}
+.brand{display:flex;align-items:center;gap:11px;}
+.brand .logo{width:30px;height:30px;color:var(--accent);flex:none;}
+.brand .nm{font-family:var(--serif);font-size:26px;line-height:1;}
+.brand .tag{font-family:var(--mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.head-meta{text-align:right;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);line-height:1.7;}
+
+h1{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.12;margin:16px 0 6px;letter-spacing:-.01em;}
+.sub{color:var(--muted);font-size:12.5px;max-width:80ch;margin-bottom:16px;}
+.eyebrow{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:9px;margin:16px 0 9px;}
+.eyebrow::before{content:"";width:16px;height:1px;background:currentColor;opacity:.7;}
+
+/* prompt box */
+.prompt{background:var(--surface-2);border:1px solid var(--line-strong);border-radius:10px;padding:14px 16px;font-size:12px;line-height:1.55;}
+.prompt .pl{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+.prompt p{margin-bottom:7px;}
+.prompt p:last-child{margin-bottom:0;}
+.prompt b{font-weight:600;}
+
+/* categories */
+.cats{columns:2;column-gap:22px;margin-top:4px;}
+.cat{break-inside:avoid;margin-bottom:12px;}
+.cat h3{font-size:12px;font-weight:600;margin-bottom:4px;}
+.cat h3 .nx{font-family:var(--mono);font-size:10px;color:var(--accent);margin-right:6px;}
+.cat p{font-size:11px;color:var(--muted);line-height:1.45;}
+.cat p .ex{color:var(--ink);font-weight:500;}
+
+/* criteria + output */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:4px;}
+.list li{position:relative;padding-left:13px;font-size:11.5px;line-height:1.45;margin-bottom:5px;}
+.list li::before{content:"";position:absolute;left:0;top:6px;width:4px;height:4px;border-radius:50%;background:var(--accent);}
+.cols{font-family:var(--mono);font-size:10.5px;color:var(--ink);line-height:1.7;}
+.cols span{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:2px 7px;margin:0 4px 5px 0;}
+
+.foot{margin-top:16px;padding-top:12px;border-top:1px solid var(--line-strong);font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="head">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2.25" y="2.25" width="27.5" height="27.5" rx="6.5" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16.2" r="9.4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="16" cy="16.2" r="5" stroke="currentColor" stroke-width="1.5" opacity="0.85"/>
+        <path d="M16 16.2 L24.3 10.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="21.6" cy="12.2" r="1.7" fill="currentColor"/>
+        <circle cx="16" cy="16.2" r="2" fill="currentColor"/>
+      </svg>
+      <div><div class="nm">Validar</div><div class="tag">Deep-Research-Briefing</div></div>
+    </div>
+    <div class="head-meta">Für: Perplexity Deep Research<br>Ziel: Datenquellen ermitteln<br>Markt: DACH</div>
+  </header>
+
+  <h1>Datenquellen-Recherche für die Validar Research Engine</h1>
+  <p class="sub">Validar validiert Geschäftsmodelle empirisch und durchsucht dafür automatisch viele Quellen. Ziel dieser Recherche: <b>konkrete, real nutzbare Datenquellen</b> je Kategorie identifizieren und nach Zugang (API/Datensatz), DACH-Abdeckung, Lizenz/Kosten, Aktualität und Eignung bewerten – mit Fokus auf <b>programmatisch nutzbare, rechtssichere</b> Quellen für den deutschen Markt.</p>
+
+  <div class="eyebrow">Prompt · direkt in Perplexity Deep Research einfügen</div>
+  <div class="prompt">
+    <div class="pl">Copy &amp; paste</div>
+    <p>Ich baue „Validar", ein KI-Tool zur empirischen Validierung von Geschäftsmodellen für den DACH-Markt. Es durchsucht automatisch wissenschaftliche Paper, Community-Signale, Code-/Produkt-Trends, Förderdatenbanken, Markt-, Unternehmens-, Rechts- und Patentdaten.</p>
+    <p><b>Recherchiere und bewerte real existierende Datenquellen je unten genannter Kategorie.</b> Priorisiere Quellen mit <b>offener oder kommerzieller API</b>, klarer <b>Lizenz/Nutzungsbedingung</b> und guter <b>DACH-/deutschsprachiger Abdeckung</b>. Nenne pro Quelle: Name, Inhalt, Zugang (REST-API / Bulk-Datensatz / Scraping / nur Web), Abdeckung DACH, Lizenz &amp; Kosten, Aktualisierungsfrequenz, Rate-Limits, sowie eine Eignung für ein KI-Tool (1–5) mit kurzer Begründung. Gib am Ende eine priorisierte Empfehlungsliste (Top 3 je Kategorie) und nenne offene Risiken (ToS, Scraping-Verbote, DSGVO).</p>
+    <p><b>Ausgabe als Tabelle</b> (Spalten siehe unten), plus die Empfehlungsliste. Alle Angaben mit Quelllink belegen.</p>
+  </div>
+
+  <div class="eyebrow">Zu recherchierende Kategorien</div>
+  <div class="cats">
+    <div class="cat"><h3><span class="nx">01</span>Wissenschaftliche Literatur</h3><p>Paper/Preprints zu Wirtschaft, Gründung, Technologie. <span class="ex">Kandidaten:</span> OpenAlex, Semantic Scholar, CORE, BASE, Crossref, arXiv, SSRN, Lens.org, Dimensions. Deutschsprachige Abdeckung?</p></div>
+    <div class="cat"><h3><span class="nx">02</span>Community- &amp; Nachfrage-Signale</h3><p>Sentiment, Pain Points, Nachfrage. <span class="ex">Kandidaten:</span> Reddit-API, Hacker News, Stack Overflow, X/Twitter, LinkedIn, deutsche Fachforen. ToS &amp; Zugang beachten.</p></div>
+    <div class="cat"><h3><span class="nx">03</span>Tech- &amp; Produkt-Trends</h3><p>Adoption &amp; Momentum. <span class="ex">Kandidaten:</span> GitHub-API, Hugging Face, Product Hunt, PyPI/npm-Trends, G2, Capterra.</p></div>
+    <div class="cat"><h3><span class="nx">04</span>Fördermittel DACH</h3><p>Programme, Fristen, Voraussetzungen. <span class="ex">Kandidaten:</span> Förderdatenbank des Bundes, EXIST, EIC (EU Funding &amp; Tenders), Forschungszulage (BZSt), Landesprogramme (z. B. Distr@l). Strukturierte/maschinenlesbare Daten?</p></div>
+    <div class="cat"><h3><span class="nx">05</span>Markt- &amp; Statistikdaten</h3><p>Marktgröße, TAM/SAM/SOM. <span class="ex">Kandidaten:</span> Destatis GENESIS-API, Eurostat, OECD, Statista, Branchenverbände, Marktreports.</p></div>
+    <div class="cat"><h3><span class="nx">06</span>Unternehmens- &amp; Wettbewerbsdaten</h3><p>Firmen, Finanzierung, Wettbewerb. <span class="ex">Kandidaten:</span> Unternehmensregister/Handelsregister, Bundesanzeiger, OpenCorporates, North Data, Crunchbase, Dealroom.</p></div>
+    <div class="cat"><h3><span class="nx">07</span>US-Markt &amp; Trend-Versatz</h3><p>Für DE/US-Zeitversatz-Analyse. <span class="ex">Kandidaten:</span> Crunchbase, Dealroom, PitchBook, CB Insights, Product Hunt, SEC EDGAR, Google Trends.</p></div>
+    <div class="cat"><h3><span class="nx">08</span>Recht &amp; Regulatorik (DACH/EU)</h3><p>Compliance-Risiken. <span class="ex">Kandidaten:</span> EUR-Lex, gesetze-im-internet.de, EU AI Act, DSGVO/EDSA-Leitlinien, branchenspez. Normen.</p></div>
+    <div class="cat"><h3><span class="nx">09</span>Patente &amp; Schutzrechte</h3><p>IP-Landschaft. <span class="ex">Kandidaten:</span> DPMAregister, EPO OPS-API, Google Patents, Lens.org.</p></div>
+    <div class="cat"><h3><span class="nx">10</span>Preis- &amp; Benchmark-Daten</h3><p>Für wertbasierte Preisempfehlung &amp; Tagessätze. <span class="ex">Kandidaten:</span> öffentliche Pricing-Pages, G2/Capterra, Vergleichsportale, Gehalts-/Tagessatz-Reports.</p></div>
+  </div>
+
+  <div class="two">
+    <div>
+      <div class="eyebrow">Bewertungskriterien je Quelle</div>
+      <ul class="list">
+        <li><b>Zugang:</b> REST-API / Bulk-Datensatz / Scraping / nur Web-UI</li>
+        <li><b>DACH-Abdeckung:</b> deutschsprachig &amp; regional relevant?</li>
+        <li><b>Lizenz &amp; Kosten:</b> offen / kommerziell / ToS-Beschränkungen</li>
+        <li><b>Aktualität &amp; Rate-Limits:</b> Update-Frequenz, Abruflimits</li>
+        <li><b>Eignung für KI-Tool (1–5):</b> Strukturierung, Stabilität, Recht</li>
+        <li><b>Risiken:</b> Scraping-Verbot, DSGVO, Datenqualität</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow">Gewünschte Tabellen-Spalten</div>
+      <div class="cols">
+        <span>Quelle</span><span>Kategorie</span><span>Inhalt</span><span>Zugang</span><span>DACH-Abdeckung</span><span>Lizenz &amp; Kosten</span><span>Aktualität</span><span>Rate-Limit</span><span>Eignung 1–5</span><span>Risiken</span><span>Link</span>
+      </div>
+      <div class="eyebrow" style="margin-top:14px;">Lieferung</div>
+      <ul class="list">
+        <li>Tabelle über alle Kategorien</li>
+        <li>Top-3-Empfehlung je Kategorie</li>
+        <li>Kurze Risiko-/Recht-Notiz (ToS, DSGVO)</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>© 2026 Validar · Deep-Research-Briefing „Datenquellen"</span>
+    <span>Tipp: Briefing als PDF an Perplexity Deep Research anhängen oder Prompt-Block einfügen</span>
+  </footer>
+</div>
+</body>
+</html>
