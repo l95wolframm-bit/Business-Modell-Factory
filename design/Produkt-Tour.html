@@ -434,6 +434,38 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .rk-detail .rd-fix .ic{width:15px;height:15px;color:var(--primary);flex:none;margin-top:2px;}
 .rk-detail .rd-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:.64rem;color:var(--text-muted);line-height:1.6;}
 
+/* ---- Screen — Buying Center ---- */
+.s-bc{display:grid;grid-template-columns:1fr 312px;gap:18px;align-items:start;}
+@media(max-width:900px){.s-bc{grid-template-columns:1fr;}}
+.bc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:560px){.bc-grid{grid-template-columns:1fr;}}
+.bc-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 14px;display:flex;flex-direction:column;gap:9px;min-height:154px;transition:border-color .2s ease, background-color .2s ease;}
+.bc-card:hover{border-color:var(--border-strong);}
+.bc-card.active{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 6%,var(--surface));}
+.bc-role{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);}
+.bc-id{display:flex;align-items:center;gap:9px;}
+.bc-av{width:28px;height:28px;border-radius:7px;background:var(--surface-2);border:1px solid var(--border);display:grid;place-items:center;font-family:var(--mono);font-size:.64rem;font-weight:600;color:var(--text);flex:none;}
+.bc-name{font-size:.84rem;font-weight:600;line-height:1.2;min-width:0;}
+.bc-name small{display:block;font-weight:400;color:var(--text-muted);font-size:.68rem;}
+.bc-crit{margin-top:auto;display:flex;flex-wrap:wrap;gap:5px;}
+.bc-crit span{font-family:var(--mono);font-size:.6rem;color:var(--text-muted);background:var(--surface-2);border:1px solid var(--border);border-radius:5px;padding:2px 6px;}
+.bc-infl{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.58rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+.bc-infl .bars{display:inline-flex;gap:2px;}
+.bc-infl .bars i{width:9px;height:5px;border-radius:1px;background:var(--surface-2);}
+.bc-infl .bars i.on{background:var(--primary);}
+.bc-detail{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:18px;}
+.bc-detail .bd-role{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);margin-bottom:9px;}
+.bc-detail .bd-name{font-size:1.02rem;font-weight:600;line-height:1.2;}
+.bc-detail .bd-title{font-size:.75rem;color:var(--text-muted);margin-bottom:2px;}
+.bc-detail .bd-block{padding:12px 0;border-top:1px solid var(--hairline);}
+.bc-detail .bd-k{font-size:.63rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin-bottom:6px;}
+.bc-detail .bd-p{font-size:.82rem;color:var(--text);line-height:1.55;}
+.bc-stress{margin-top:13px;display:flex;gap:10px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 13px;}
+.bc-stress .bs-av{width:24px;height:24px;border-radius:7px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;flex:none;}
+.bc-stress .bs-av .ic{width:14px;height:14px;}
+.bc-stress p{font-family:var(--serif);font-style:italic;font-size:.92rem;line-height:1.4;color:var(--text);margin:0;}
+.bc-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:.64rem;color:var(--text-muted);}
+
 /* ============ CLOSING ============ */
 .closing{text-align:center;}
 .closing .h2{max-width:18ch;margin:0 auto 18px;}
@@ -741,10 +773,80 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     </div>
   </section>
 
-  <!-- ===== STEP 05 — RISK RADAR ===== -->
+  <!-- ===== STEP 05 — BUYING CENTER ===== -->
+  <section class="tour-step" id="buying">
+    <div class="step-head reveal">
+      <span class="step-kicker">Schritt 05 · Buying Center</span>
+      <h2>Wer entscheidet wirklich? Das Buying Center deiner Zielkunden.</h2>
+      <p>Im B2B kauft selten eine einzelne Person. Validar leitet aus der erkannten Branche automatisch die Entscheidungs­einheit ab – Macht- und Fachpromotoren, Beeinflusser, Nutzer – und generiert je Rolle eine Persona. Der Stress-Test greift dein Modell dann gezielt aus jeder Perspektive an.</p>
+    </div>
+    <div class="win reveal">
+      <div class="win-bar"><div class="win-dots"><i></i><i></i><i></i></div><div class="win-url">app.validar.de/<b>buying-center</b></div><div class="spacer"></div></div>
+      <div class="app">
+        <aside class="app-side" data-active="buying"></aside>
+        <div class="app-main">
+          <div class="app-top">
+            <div class="crumb"><b>Buying Center</b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span>4 Rollen · Legal-Tech</span></div>
+            <div class="t-right"><span class="tag ok">KI-generiert aus Recherche</span><span class="pill-btn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg> Stress-Test</span></div>
+          </div>
+          <div class="app-body">
+            <div class="s-bc">
+              <div class="bc-grid">
+                <div class="bc-card">
+                  <div class="bc-role">Machtpromotor</div>
+                  <div class="bc-id"><span class="bc-av">LV</span><span class="bc-name">Dr. Lena Vogt<small>Partnerin · Budget &amp; Strategie</small></span></div>
+                  <div class="bc-crit"><span>ROI</span><span>Mandantennutzen</span><span>Haftung</span></div>
+                  <div class="bc-infl">Einfluss <span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+                </div>
+                <div class="bc-card active">
+                  <div class="bc-role">Beeinflusser</div>
+                  <div class="bc-id"><span class="bc-av">MS</span><span class="bc-name">Mara Stein<small>Datenschutzbeauftragte</small></span></div>
+                  <div class="bc-crit"><span>DSGVO</span><span>AV-Vertrag</span><span>Audit-Log</span></div>
+                  <div class="bc-infl">Einfluss <span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+                </div>
+                <div class="bc-card">
+                  <div class="bc-role">Fachpromotor</div>
+                  <div class="bc-id"><span class="bc-av">JR</span><span class="bc-name">Jonas Reuter<small>IT- &amp; Digitalisierungsleitung</small></span></div>
+                  <div class="bc-crit"><span>Integration</span><span>EU-Hosting</span><span>Wartung</span></div>
+                  <div class="bc-infl">Einfluss <span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+                </div>
+                <div class="bc-card">
+                  <div class="bc-role">Nutzer</div>
+                  <div class="bc-id"><span class="bc-av">AK</span><span class="bc-name">Aylin Kaya<small>Anwältin · tägliche Nutzung</small></span></div>
+                  <div class="bc-crit"><span>Zeitersparnis</span><span>Erklärbarkeit</span><span>Vertrauen</span></div>
+                  <div class="bc-infl">Einfluss <span class="bars"><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+                </div>
+              </div>
+
+              <div class="bc-detail">
+                <div class="bd-role">Beeinflusser · Datenschutz</div>
+                <div class="bd-name">Mara Stein</div>
+                <div class="bd-title">Externe Datenschutzbeauftragte, betreut 3 Kanzleien</div>
+                <div class="bd-block">
+                  <div class="bd-k">Überzeugt durch</div>
+                  <p class="bd-p">Nachvollziehbare Auftragsverarbeitung, EU-Hosting und ein lückenloses Audit-Log. Sie gibt erst frei, wenn die Datenkette sauber dokumentiert ist.</p>
+                </div>
+                <div class="bd-block">
+                  <div class="bd-k">Sorge</div>
+                  <p class="bd-p">Verarbeitung sensibler Mandantendaten in der Cloud – und KI-Halluzinationen bei haftungsrelevanten Rechtsfragen.</p>
+                </div>
+                <div class="bc-stress">
+                  <span class="bs-av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span>
+                  <p>„Als Datenschutzbeauftragte würde ich fragen: Wo werden die Mandantendaten verarbeitet – und wie weist ihr die Löschung nach Auftragsende nach?"</p>
+                </div>
+                <div class="bc-foot">KI-Persona · aus 14 Treffern der Research Engine abgeleitet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEP 06 — RISK RADAR ===== -->
   <section class="tour-step" id="risk">
     <div class="step-head reveal">
-      <span class="step-kicker">Schritt 05 · Risk Radar</span>
+      <span class="step-kicker">Schritt 06 · Risk Radar</span>
       <h2>Risk Radar™ — dein Modell durch die Augen eines kritischen Investors.</h2>
       <p>Inspiriert von der Risiko-Offenlegung börsennotierter Unternehmen (SEC Form 10-K, Item 1A) bewertet der Risk Radar dein Geschäftsmodell in acht Kategorien – jede mit Score, Befund und konkreter Gegenmaßnahme. So siehst du die Schwachstellen, bevor Investoren sie finden.</p>
     </div>
@@ -800,10 +902,10 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     </div>
   </section>
 
-  <!-- ===== STEP 06 — KALKULATION ===== -->
+  <!-- ===== STEP 07 — KALKULATION ===== -->
   <section class="tour-step" id="kalkulation">
     <div class="step-head reveal">
-      <span class="step-kicker">Schritt 06 · Kalkulation</span>
+      <span class="step-kicker">Schritt 07 · Kalkulation</span>
       <h2>Die Wirtschaftlichkeit — sauber auf Annahmen gerechnet.</h2>
       <p>Jede Kalkulation beginnt mit Annahmen. Das Tool schlägt aus Markt- und Research-Daten Startwerte vor, du passt sie an – und siehst sofort Deckungsbeitrag, Break-even und Kapitalbedarf. Jede Annahme trägt Konfidenz und Quelle und fließt zurück in den Stress-Test.</p>
     </div>
@@ -853,10 +955,10 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     </div>
   </section>
 
-  <!-- ===== STEP 07 — FÖRDERMITTEL ===== -->
+  <!-- ===== STEP 08 — FÖRDERMITTEL ===== -->
   <section class="tour-step" id="foerderung">
     <div class="step-head reveal">
-      <span class="step-kicker">Schritt 07 · Fördermittel</span>
+      <span class="step-kicker">Schritt 08 · Fördermittel</span>
       <h2>Passende Förderprogramme — aus dem deutschen &amp; europäischen Topf.</h2>
       <p>Aus deinem geprüften Modell leitet das Tool passende Programme ab – mit Match-Score, Förderhöhe, Frist und Bundesland-Filter. EXIST, INVEST, High-Tech Gründerfonds, Distr@l, EIC und über 40 weitere.</p>
     </div>
@@ -925,10 +1027,10 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     </div>
   </section>
 
-  <!-- ===== STEP 07 — REPORT ===== -->
+  <!-- ===== STEP 09 — REPORT ===== -->
   <section class="tour-step" id="report">
     <div class="step-head reveal">
-      <span class="step-kicker">Schritt 08 · Report</span>
+      <span class="step-kicker">Schritt 09 · Report</span>
       <h2>Ein belegter Differenzierungs-Report — zum Mitnehmen.</h2>
       <p>Am Ende steht ein nachvollziehbarer Report: Marktbeleg, Differenzierung, Stress-Test-Ergebnis und Förder-Empfehlung – jede Aussage mit Quelle, exportierbar als PDF oder als Grundgerüst fürs Pitch-Deck.</p>
     </div>
@@ -1031,6 +1133,7 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
   <div class="side-item" data-key="research"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> Research <span class="badge">218</span></div>
   <div class="side-item" data-key="markt"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> Markt &amp; Wettbewerb</div>
   <div class="side-item" data-key="canvas"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Canvas</div>
+  <div class="side-item" data-key="buying"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20v-1.5a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4V20"/><path d="M15 20v-1a3.5 3.5 0 0 1 6 0v1"/></svg> Buying Center <span class="badge">4</span></div>
   <div class="side-item" data-key="risk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg> Risk Radar <span class="badge">8</span></div>
   <div class="side-item" data-key="kalkulation"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Kalkulation</div>
   <div class="side-item" data-key="foerderung"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg> Fördermittel <span class="badge">6</span></div>
