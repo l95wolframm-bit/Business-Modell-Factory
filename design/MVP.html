@@ -58,6 +58,18 @@ html[data-theme="dark"] .toggle .ic-sun{display:none;} html[data-theme="dark"] .
 .chip{font-family:var(--mono);font-size:.68rem;letter-spacing:.02em;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;}
 .chip b{color:var(--ink);font-weight:600;}
 
+/* tabs / Laschen */
+.tabbar{position:sticky;top:var(--nav-h);z-index:20;display:flex;gap:3px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);padding:7px 0 0;margin-bottom:22px;}
+.tlasche{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;padding:9px 15px;border-radius:8px 8px 0 0;color:var(--muted);border:1px solid transparent;border-bottom:none;position:relative;transition:color .15s,background-color .15s;}
+.tlasche:hover{color:var(--ink);background:var(--surface-2);}
+.tlasche.active{color:var(--accent);background:var(--surface);border-color:var(--line);}
+.tlasche.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);}
+.panel[hidden]{display:none;}
+.panel-head{margin-bottom:18px;}
+.panel-head h2{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.1;}
+.panel-head p{color:var(--muted);font-size:.92rem;margin-top:6px;max-width:64ch;}
+@media(min-width:600px){.sgrid.two{grid-template-columns:1fr 1fr;}}
+
 /* flow steps */
 .flow{display:grid;gap:14px;padding-bottom:8px;}
 .step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.4vw,26px);}
@@ -179,6 +191,13 @@ html[data-theme="dark"] .toggle .ic-sun{display:none;} html[data-theme="dark"] .
     </div>
   </section>
 
+  <nav class="tabbar" aria-label="MVP-Ansichten">
+    <button class="tlasche active" data-tab="prototyp">Prototyp</button>
+    <button class="tlasche" data-tab="funktionen">Funktionsumfang</button>
+    <button class="tlasche" data-tab="architektur">Architektur</button>
+  </nav>
+
+  <div id="tab-prototyp" class="panel">
   <div class="flow">
 
     <!-- STEP 1 -->
@@ -252,39 +271,52 @@ html[data-theme="dark"] .toggle .ic-sun{display:none;} html[data-theme="dark"] .
     </section>
 
   </div>
+  </div><!-- /tab-prototyp -->
 
-  <!-- SCOPE -->
-  <section class="scope">
-    <h2>Was im MVP steckt – und was bewusst wartet</h2>
-    <p class="ssub">Als Solo-/Kleinteam-Gründer baut man kein Dutzend Integrationen auf einmal. Dieser Schnitt liefert einen ehrlichen, durchgehenden Nutzen – und ist zugleich der ideale Umfang für eine Masterarbeit (ein evaluierbares Artefakt statt zehn halber Module).</p>
-    <div class="sgrid">
+  <!-- TAB: FUNKTIONSUMFANG -->
+  <div id="tab-funktionen" class="panel" hidden>
+    <div class="panel-head">
+      <h2>Funktionsumfang im MVP</h2>
+      <p>Als Solo-/Kleinteam-Gründer baut man kein Dutzend Integrationen auf einmal. Dieser Schnitt liefert einen ehrlichen, durchgehenden Nutzen – und ist zugleich der ideale Umfang für eine Masterarbeit (ein evaluierbares Artefakt statt zehn halber Module).</p>
+    </div>
+    <div class="sgrid two">
       <div class="scard in">
         <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Im MVP drin</h4>
         <ul>
           <li><span class="mk">+</span>Idee-Eingabe &amp; geführtes KI-Sparring</li>
-          <li><span class="mk">+</span>Async-Research auf 4 offenen Quellen</li>
-          <li><span class="mk">+</span>Marktbeleg &amp; Differenzierung (belegt)</li>
-          <li><span class="mk">+</span>Risk-Radar-Lite (4 Kategorien)</li>
+          <li><span class="mk">+</span>Async-Research auf 4 offenen Quellen (OpenAlex, Crossref, Förder-Liste, Reddit)</li>
+          <li><span class="mk">+</span>Marktbeleg &amp; Differenzierung – jede Aussage mit Quelle</li>
+          <li><span class="mk">+</span>Risk-Radar-Lite (4 statt 8 Kategorien)</li>
           <li><span class="mk">+</span>Kurz-Report + PDF-Export</li>
+          <li><span class="mk">+</span>Dark/Light-Modus</li>
         </ul>
       </div>
       <div class="scard out">
         <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg> Bewusst verschoben</h4>
         <ul>
-          <li><span class="mk">–</span>Buying Center, Hybrid-/Service-Kalkulation</li>
-          <li><span class="mk">–</span>Productized Service, Methoden-Bibliothek</li>
-          <li><span class="mk">–</span>Go/No-Go-Gate, DE/US-Trend-Versatz</li>
+          <li><span class="mk">–</span>Buying Center + Personas</li>
+          <li><span class="mk">–</span>Hybrid-/Dienstleistungs-Kalkulation, Productized Service</li>
+          <li><span class="mk">–</span>Methoden-Bibliothek, Go/No-Go-Gate</li>
+          <li><span class="mk">–</span>DE/US-Trend-Versatz (Datenlage)</li>
           <li><span class="mk">–</span>Live-Förder-Matching (erst kuratierte Liste)</li>
-          <li><span class="mk">–</span>Social-Schwarm, Multi-Agent, Auth/Workspaces</li>
+          <li><span class="mk">–</span>Social-Schwarm, Multi-Agent, Academic Mode, Auth/Workspaces</li>
         </ul>
       </div>
-      <div class="scard arch">
-        <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Architektur (schlank)</h4>
-        <p class="arch-flow"><b>Frontend</b> (Netlify) <span class="ar">→</span> <b>Backend</b> (FastAPI/Express + Postgres) <span class="ar">→</span> <b>Job-Queue</b> (Research async) <span class="ar">→</span> <b>1 LLM</b> (Claude) + <b>4 Quellen</b> mit Caching.</p>
-        <p class="arch-note">Observability, Token- &amp; Latenz-Budget von Tag 1. Perplexity Deep Research später als optionaler „Deep Dive"-Knopf, nie im kritischen Pfad.</p>
-      </div>
     </div>
-  </section>
+  </div>
+
+  <!-- TAB: ARCHITEKTUR -->
+  <div id="tab-architektur" class="panel" hidden>
+    <div class="panel-head">
+      <h2>Architektur (schlank)</h2>
+      <p>Ein einziger, sauberer Pfad – kein Agentenschwarm, keine Data-Platform. Genau so viel Technik, wie ein Solo-Team warten kann.</p>
+    </div>
+    <div class="scard arch">
+      <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg> Daten- &amp; KI-Fluss</h4>
+      <p class="arch-flow"><b>Frontend</b> (Netlify) <span class="ar">→</span> <b>Backend</b> (FastAPI/Express + Postgres) <span class="ar">→</span> <b>Job-Queue</b> (Research async) <span class="ar">→</span> <b>1 LLM</b> (Claude) + <b>4 Quellen</b> mit Caching.</p>
+      <p class="arch-note">Observability, Token- &amp; Latenz-Budget von Tag 1. Quellen einzeln nacheinander integrieren (OpenAlex zuerst). Perplexity Deep Research später als optionaler „Deep Dive"-Knopf, nie im kritischen Pfad.</p>
+    </div>
+  </div>
 
 </main>
 
@@ -299,6 +331,18 @@ html[data-theme="dark"] .toggle .ic-sun{display:none;} html[data-theme="dark"] .
   try{ if(matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme','dark'); }catch(e){}
   var t=document.getElementById('themeToggle');
   if(t) t.addEventListener('click',function(){ html.setAttribute('data-theme', html.getAttribute('data-theme')==='dark'?'light':'dark'); });
+
+  /* Laschen / Tabs */
+  var laschen=[].slice.call(document.querySelectorAll('.tlasche'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  laschen.forEach(function(b){
+    b.addEventListener('click',function(){
+      laschen.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-selected','false');});
+      b.classList.add('active');b.setAttribute('aria-selected','true');
+      var id='tab-'+b.getAttribute('data-tab');
+      panels.forEach(function(p){p.hidden=(p.id!==id);});
+    });
+  });
 })();
 </script>
 </body>
