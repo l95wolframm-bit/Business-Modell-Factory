@@ -466,6 +466,30 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .bc-stress p{font-family:var(--serif);font-style:italic;font-size:.92rem;line-height:1.4;color:var(--text);margin:0;}
 .bc-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:.64rem;color:var(--text-muted);}
 
+/* ---- Screen — SaaS-Pricing (Teil von Kalkulation) ---- */
+.spricing{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;margin-bottom:14px;}
+.sp-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;}
+.sp-h .t{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);}
+.wtp{position:relative;height:8px;border-radius:5px;background:var(--surface-2);margin:34px 10px 32px;}
+.wtp .band{position:absolute;top:0;bottom:0;border-radius:5px;background:color-mix(in srgb,var(--primary) 22%,transparent);}
+.wtp .mark{position:absolute;top:50%;transform:translate(-50%,-50%);}
+.wtp .mark .pin{width:11px;height:11px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 16%,transparent);}
+.wtp .mark.muted .pin{background:var(--text-muted);box-shadow:0 0 0 4px color-mix(in srgb,var(--text-muted) 14%,transparent);}
+.wtp .mark .lab{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:.62rem;}
+.wtp .mark .lab.top{bottom:18px;color:var(--text);}
+.wtp .mark .lab.bot{top:18px;color:var(--text-muted);}
+.wtp-cap{font-family:var(--mono);font-size:.64rem;color:var(--text-muted);margin-bottom:16px;}
+.sp-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:680px){.sp-tiers{grid-template-columns:1fr;}}
+.sp-tier{border:1px solid var(--border);border-radius:10px;padding:12px 13px;display:flex;flex-direction:column;gap:4px;}
+.sp-tier.rec{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 6%,var(--surface));}
+.sp-tier .nm{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);display:flex;align-items:center;gap:7px;}
+.sp-tier .nm .rec-badge{font-size:.56rem;background:var(--primary);color:var(--on-primary);border-radius:4px;padding:1px 5px;letter-spacing:.04em;}
+.sp-tier .pr{font-family:var(--serif);font-size:1.45rem;line-height:1;color:var(--text);}
+.sp-tier .pr small{font-family:var(--sans);font-size:.68rem;color:var(--text-muted);}
+.sp-tier .sc{font-size:.72rem;color:var(--text-muted);}
+.sp-tier .dbm{margin-top:6px;font-family:var(--mono);font-size:.62rem;color:var(--primary);}
+
 /* ============ CLOSING ============ */
 .closing{text-align:center;}
 .closing .h2{max-width:18ch;margin:0 auto 18px;}
@@ -907,7 +931,7 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     <div class="step-head reveal">
       <span class="step-kicker">Schritt 07 · Kalkulation</span>
       <h2>Die Wirtschaftlichkeit — sauber auf Annahmen gerechnet.</h2>
-      <p>Jede Kalkulation beginnt mit Annahmen. Das Tool schlägt aus Markt- und Research-Daten Startwerte vor, du passt sie an – und siehst sofort Deckungsbeitrag, Break-even und Kapitalbedarf. Jede Annahme trägt Konfidenz und Quelle und fließt zurück in den Stress-Test.</p>
+      <p>Validar leitet aus vergleichbaren Produkten eine wertbasierte Preisempfehlung ab und rechnet das SaaS-Modell durch: Du siehst die plausible Zahlungsbereitschaft, die Tarif-Tiers und sofort Deckungsbeitrag, Break-even und Kapitalbedarf. Jede Annahme trägt Konfidenz und Quelle und fließt zurück in den Stress-Test.</p>
     </div>
     <div class="win reveal">
       <div class="win-bar"><div class="win-dots"><i></i><i></i><i></i></div><div class="win-url">app.validar.de/<b>kalkulation</b></div><div class="spacer"></div></div>
@@ -919,6 +943,35 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
             <div class="t-right"><span class="tag warn">2 Annahmen · niedrige Konfidenz</span></div>
           </div>
           <div class="app-body">
+            <div class="spricing">
+              <div class="sp-h"><span class="t">SaaS-Preismodell · wertbasiert</span><span class="tag ok">KI-Preisempfehlung</span></div>
+              <div class="wtp">
+                <div class="band" style="left:21%;width:56%"></div>
+                <div class="mark muted" style="left:32%"><span class="pin"></span><span class="lab bot">aktuell € 49</span></div>
+                <div class="mark" style="left:43%"><span class="pin"></span><span class="lab top">Empfehlung € 59</span></div>
+              </div>
+              <div class="wtp-cap">Plausible Zahlungsbereitschaft € 39–€ 89 · abgeleitet aus 18 Vergleichsprodukten (DACH-Median € 52 · US-Median € 56)</div>
+              <div class="sp-tiers">
+                <div class="sp-tier">
+                  <div class="nm">Starter</div>
+                  <div class="pr">€ 0</div>
+                  <div class="sc">3 Analysen / Monat · Basis-Quellen</div>
+                  <div class="dbm">Funnel-Einstieg</div>
+                </div>
+                <div class="sp-tier rec">
+                  <div class="nm">Pro <span class="rec-badge">Empfohlen</span></div>
+                  <div class="pr">€ 59<small> / Monat</small></div>
+                  <div class="sc">Unbegrenzt · alle Quellen · Risk Radar</div>
+                  <div class="dbm">Deckungsbeitrag € 54,20 / Nutzer</div>
+                </div>
+                <div class="sp-tier">
+                  <div class="nm">Team</div>
+                  <div class="pr">€ 149<small> / Monat</small></div>
+                  <div class="sc">5 Arbeitsplätze · Workspaces · Export</div>
+                  <div class="dbm">Deckungsbeitrag € 132 / Account</div>
+                </div>
+              </div>
+            </div>
             <div class="scalc">
               <div>
                 <div class="assum-h"><span class="t">Annahmen · anpassbar</span><span class="t" style="color:var(--primary)">KI-Startwerte</span></div>
