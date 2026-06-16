@@ -490,6 +490,32 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .sp-tier .sc{font-size:.72rem;color:var(--text-muted);}
 .sp-tier .dbm{margin-top:6px;font-family:var(--mono);font-size:.62rem;color:var(--primary);}
 
+/* ---- Geschäftsmodell-Typ-Schalter (Idee-Screen) ---- */
+.s1-type{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;}
+.s1t-h{display:flex;align-items:center;gap:9px;font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:12px;}
+.s1t-ai{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.06em;color:var(--primary);background:color-mix(in srgb,var(--primary) 10%,transparent);border:1px solid color-mix(in srgb,var(--primary) 28%,transparent);border-radius:5px;padding:2px 7px;}
+.s1t-seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.s1t-opt{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;border:1px solid var(--border);border-radius:9px;padding:11px 13px;background:var(--surface-2);color:var(--text-muted);font-weight:600;font-size:.86rem;transition:border-color .2s ease,background-color .2s ease,color .2s ease;}
+.s1t-opt small{font-family:var(--mono);font-size:.58rem;font-weight:400;letter-spacing:.02em;color:var(--text-muted);text-transform:uppercase;}
+.s1t-opt.active{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 8%,var(--surface));color:var(--text);}
+.s1t-opt.active small{color:var(--primary);}
+.s1t-note{margin-top:12px;font-size:.78rem;color:var(--text-muted);line-height:1.5;}
+.s1t-note b{color:var(--text);font-weight:600;}
+
+/* ---- Kalkulations-Modus + Dienstleistungs-Kalkulation ---- */
+.calc-mode{display:inline-flex;gap:3px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:3px;margin-bottom:14px;}
+.calc-mode button{font-family:var(--mono);font-size:.63rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 13px;border-radius:6px;color:var(--text-muted);}
+.calc-mode button.active{background:var(--surface);color:var(--text);border:1px solid var(--border);}
+.svc-calc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;margin-bottom:14px;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:680px){.svc-grid{grid-template-columns:1fr 1fr;}}
+.svc-kpi{border:1px solid var(--border);border-radius:9px;padding:11px 12px;background:var(--surface-2);}
+.svc-kpi.hl{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 6%,var(--surface));}
+.svc-kpi .k{font-family:var(--mono);font-size:.59rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);}
+.svc-kpi .v{font-family:var(--serif);font-size:1.4rem;line-height:1.1;color:var(--text);margin:3px 0;}
+.svc-kpi.hl .v{color:var(--primary);}
+.svc-kpi .s{font-size:.65rem;color:var(--text-muted);line-height:1.35;}
+
 /* ============ CLOSING ============ */
 .closing{text-align:center;}
 .closing .h2{max-width:18ch;margin:0 auto 18px;}
@@ -558,7 +584,7 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
   <div class="container container-wide">
     <span class="hero-badge reveal"><span class="flag" aria-hidden="true"></span> Produkt-Tour · spezialisiert auf den DACH-Markt</span>
     <h1 class="display reveal">Ein Blick ins Tool. <span class="soft">So sieht Validierung von innen aus.</span></h1>
-    <p class="lede reveal">Vom ersten Satz bis zum belegten Report: sieben Auszüge aus Validar – mit deutschen Datenquellen, deutschem Geschäftsmodell-Vokabular und Förderprogrammen aus dem DACH-Raum.</p>
+    <p class="lede reveal">Vom ersten Satz bis zum belegten Report: neun Auszüge aus Validar – mit deutschen Datenquellen, deutschem Geschäftsmodell-Vokabular und Förderprogrammen aus dem DACH-Raum.</p>
     <div class="hero-cta reveal">
       <a class="btn btn-primary btn-lg" href="Business Model Factory.html#waitlist">Early Access sichern <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-ghost btn-lg" href="Business Model Factory.html">Zur Übersicht</a>
@@ -611,9 +637,18 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
                   <span class="chip"><small>Branche</small><b>Legal-Tech</b></span>
                   <span class="chip"><small>Zielgruppe</small><b>Kleine &amp; mittlere Kanzleien</b></span>
                   <span class="chip"><small>Region</small><b>Deutschland (DACH)</b></span>
-                  <span class="chip"><small>Modell</small><b>B2B SaaS</b></span>
+                  <span class="chip"><small>Modell</small><b>Hybrid (SaaS + Service)</b></span>
                   <span class="chip"><small>Rechtsform-Tendenz</small><b>UG / GmbH</b></span>
                 </div>
+              </div>
+              <div class="s1-type">
+                <div class="s1t-h">Geschäftsmodell-Typ <span class="s1t-ai">KI-erkannt</span></div>
+                <div class="s1t-seg">
+                  <div class="s1t-opt">Produkt<small>SaaS / Lizenz</small></div>
+                  <div class="s1t-opt">Beratung<small>Projekt / Tagessatz</small></div>
+                  <div class="s1t-opt active">Hybrid<small>Produkt + Service</small></div>
+                </div>
+                <div class="s1t-note">Validar erkennt einen <b>SaaS-Kern plus Onboarding &amp; Beratung</b> – ab hier rechnen Kalkulation, Risk Radar und Buying Center hybrid. Du kannst den Typ jederzeit umstellen.</div>
               </div>
               <button class="btn btn-primary go">Research starten <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             </div>
@@ -931,7 +966,7 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     <div class="step-head reveal">
       <span class="step-kicker">Schritt 07 · Kalkulation</span>
       <h2>Die Wirtschaftlichkeit — sauber auf Annahmen gerechnet.</h2>
-      <p>Validar leitet aus vergleichbaren Produkten eine wertbasierte Preisempfehlung ab und rechnet das SaaS-Modell durch: Du siehst die plausible Zahlungsbereitschaft, die Tarif-Tiers und sofort Deckungsbeitrag, Break-even und Kapitalbedarf. Jede Annahme trägt Konfidenz und Quelle und fließt zurück in den Stress-Test.</p>
+      <p>Weil das Modell hybrid ist, rechnet Validar beide Erlösarten durch: das SaaS-Produkt (wertbasierte Preisempfehlung, Tarif-Tiers) und die Beratung (Tagessatz, Auslastung, Projektmarge). Du siehst sofort Deckungsbeitrag, Break-even und Kapitalbedarf. Jede Annahme trägt Konfidenz und Quelle und fließt zurück in den Stress-Test.</p>
     </div>
     <div class="win reveal">
       <div class="win-bar"><div class="win-dots"><i></i><i></i><i></i></div><div class="win-url">app.validar.de/<b>kalkulation</b></div><div class="spacer"></div></div>
@@ -939,10 +974,11 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
         <aside class="app-side" data-active="kalkulation"></aside>
         <div class="app-main">
           <div class="app-top">
-            <div class="crumb"><b>Kalkulation</b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span>Business Case · 36 Monate</span></div>
+            <div class="crumb"><b>Kalkulation</b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span>Hybrid · SaaS + Beratung · 36 Monate</span></div>
             <div class="t-right"><span class="tag warn">2 Annahmen · niedrige Konfidenz</span></div>
           </div>
           <div class="app-body">
+            <div class="calc-mode"><button>Produkt · SaaS</button><button>Beratung</button><button class="active">Hybrid · gesamt</button></div>
             <div class="spricing">
               <div class="sp-h"><span class="t">SaaS-Preismodell · wertbasiert</span><span class="tag ok">KI-Preisempfehlung</span></div>
               <div class="wtp">
@@ -971,6 +1007,18 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
                   <div class="dbm">Deckungsbeitrag € 132 / Account</div>
                 </div>
               </div>
+            </div>
+            <div class="svc-calc">
+              <div class="sp-h"><span class="t">Dienstleistungs-Kalkulation · Beratung</span><span class="tag ok">KI-Tagessatz</span></div>
+              <div class="svc-grid">
+                <div class="svc-kpi"><div class="k">Tagessatz</div><div class="v">€ 1.150</div><div class="s">Empfehlung · Spanne € 950–1.400 (DACH Legal-Tech)</div></div>
+                <div class="svc-kpi"><div class="k">Auslastung</div><div class="v">62 %</div><div class="s">abrechenbar · Benchmark 55–70 %</div></div>
+                <div class="svc-kpi"><div class="k">Abrechenbare Tage</div><div class="v">136 / Jahr</div><div class="s">je Berater:in</div></div>
+                <div class="svc-kpi"><div class="k">Delivery-Kosten</div><div class="v">€ 430 / Tag</div><div class="s">Personal + Tooling</div></div>
+                <div class="svc-kpi hl"><div class="k">Projektmarge</div><div class="v">63 %</div><div class="s">Deckungsbeitrag je Projekttag</div></div>
+                <div class="svc-kpi"><div class="k">Umsatz / Berater:in</div><div class="v">€ 156k</div><div class="s">p. a. bei aktueller Auslastung</div></div>
+              </div>
+              <div class="assum-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg><div><b>KI-Hinweis:</b> Tagessatz aus 23 Vergleichsangeboten abgeleitet. Die Marge ist stark personenabhängig – echte Skalierung nur über Productized Services oder Teamaufbau. Fließt als Risiko in den Risk Radar.</div></div>
             </div>
             <div class="scalc">
               <div>
