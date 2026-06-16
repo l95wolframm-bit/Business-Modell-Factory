@@ -8,37 +8,39 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <style>
 /* ============ TOKENS (shared with landing) ============ */
 :root{
-  --bg:#f7f6f2; --surface:#f9f8f5; --surface-2:#f1efe8;
-  --text:#28251d; --text-muted:#7a7974;
-  --primary:#01696f; --primary-hover:#0c4e54; --on-primary:#f7f6f2;
-  --border:oklch(from var(--text) l c h / 0.12);
-  --border-strong:oklch(from var(--text) l c h / 0.20);
-  --hairline:oklch(from var(--text) l c h / 0.07);
-  --warn:#b4541f;
-  --shadow-sm:0 1px 2px rgba(40,37,29,.05), 0 1px 1px rgba(40,37,29,.04);
-  --shadow-md:0 1px 2px rgba(40,37,29,.04), 0 10px 30px -12px rgba(40,37,29,.18);
-  --shadow-lg:0 2px 4px rgba(40,37,29,.05), 0 30px 70px -28px rgba(40,37,29,.32);
+  --bg:#fbfbf9; --surface:#ffffff; --surface-2:#f4f3ef;
+  --text:#16150f; --text-muted:#6b6a63;
+  --primary:#0a5d62; --primary-hover:#084a4e; --on-primary:#ffffff;
+  --border:rgba(22,21,15,.11);
+  --border-strong:rgba(22,21,15,.18);
+  --hairline:rgba(22,21,15,.07);
+  --warn:#8a5a1c;
+  --shadow-sm:0 1px 2px rgba(22,21,15,.04);
+  --shadow-md:0 1px 2px rgba(22,21,15,.04), 0 14px 32px -18px rgba(22,21,15,.20);
+  --shadow-lg:0 1px 2px rgba(22,21,15,.05), 0 26px 56px -26px rgba(22,21,15,.30);
   --serif:"Instrument Serif", Georgia, serif;
-  --sans:"Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --container:960px; --container-wide:1200px;
-  --r-sm:8px; --r-md:14px; --r-lg:22px;
-  --nav-h:68px;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --container:1080px; --container-wide:1200px;
+  --r-sm:8px; --r-md:12px; --r-lg:16px;
+  --nav-h:64px;
 }
 html[data-theme="dark"]{
-  --bg:#1a1916; --surface:#222019; --surface-2:#2b2820;
-  --text:#f0eee6; --text-muted:#a09d92;
-  --primary:#3aa6ab; --primary-hover:#54bcc1; --on-primary:#11201f;
-  --warn:#e0935f;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.35);
-  --shadow-md:0 1px 2px rgba(0,0,0,.3), 0 12px 34px -14px rgba(0,0,0,.6);
-  --shadow-lg:0 2px 4px rgba(0,0,0,.4), 0 34px 80px -30px rgba(0,0,0,.75);
+  --bg:#0c0c0b; --surface:#141413; --surface-2:#1b1b19;
+  --text:#ededea; --text-muted:#92918a;
+  --primary:#54b8b2; --primary-hover:#6fcac4; --on-primary:#08110f;
+  --border:rgba(255,255,255,.10);
+  --border-strong:rgba(255,255,255,.17);
+  --hairline:rgba(255,255,255,.06);
+  --warn:#c08a52;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+  --shadow-md:0 1px 2px rgba(0,0,0,.4), 0 18px 40px -22px rgba(0,0,0,.7);
+  --shadow-lg:0 1px 2px rgba(0,0,0,.45), 0 30px 64px -28px rgba(0,0,0,.78);
 }
 
 *,*::before,*::after{box-sizing:border-box;}
@@ -446,77 +448,23 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .footer-bottom .meta{display:flex;gap:20px;flex-wrap:wrap;}
 .footer-bottom a:hover{color:var(--primary);}
 
-/* ============ GLASSMORPHISM + ENERGETIC ACCENTS (shared with landing) ============ */
-:root{
-  --c-teal:#01a39a;--c-coral:#f4663b;--c-amber:#f3ab3c;--c-indigo:#5566ef;
-  --ink-teal:#01696f;--ink-coral:#cb4a26;--ink-indigo:#3c41c6;--ink-amber:#9a6b0d;
-  --glass:color-mix(in srgb, var(--surface) 58%, transparent);
-  --glass-strong:color-mix(in srgb, var(--surface) 80%, transparent);
-  --glass-border:color-mix(in srgb, #ffffff 55%, var(--border));
-  --glass-hi:rgba(255,255,255,.6);--glass-blur:16px;
+/* ============ EDITORIAL PRECISION — alignment (shared with landing) ============ */
+/* hero badge + chips as flat mono technical labels */
+.hero-badge{
+  font-family:var(--mono);font-size:.68rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);
+  border-radius:6px;
 }
-html[data-theme="dark"]{
-  --c-teal:#3fb6ad;--c-coral:#ff8763;--c-amber:#ffc25e;--c-indigo:#8a93ff;
-  --ink-teal:#5fc4c9;--ink-coral:#ff9670;--ink-indigo:#a3abff;--ink-amber:#ffc870;
-  --glass:color-mix(in srgb, var(--surface) 50%, transparent);
-  --glass-strong:color-mix(in srgb, var(--surface) 72%, transparent);
-  --glass-border:color-mix(in srgb, #ffffff 14%, var(--border));
-  --glass-hi:rgba(255,255,255,.08);
-}
+.eng-chip,.eng-badge,.market-badge{border-radius:6px;}
 
-/* ambient energetic colour field — same as landing */
-body::before{
-  content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(36vw 36vw at 12% 6%, color-mix(in srgb,var(--c-teal) 40%,transparent), transparent 60%),
-    radial-gradient(32vw 32vw at 90% 2%, color-mix(in srgb,var(--c-coral) 36%,transparent), transparent 58%),
-    radial-gradient(42vw 42vw at 84% 68%, color-mix(in srgb,var(--c-indigo) 32%,transparent), transparent 62%),
-    radial-gradient(30vw 30vw at 6% 84%, color-mix(in srgb,var(--c-amber) 32%,transparent), transparent 60%);
-  opacity:.55;
-}
-html[data-theme="dark"] body::before{opacity:.34;}
+/* app windows: flat, hairline-framed product shots with a restrained hover */
+.win{transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease;}
+.tour-step:hover .win{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--border-strong);}
 
-/* frosted chips + nav */
-.nav{background:color-mix(in srgb,var(--bg) 60%,transparent);}
-.hero-badge,.eng-chip,.eng-badge,.market-badge{
-  background:var(--glass);
-  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(1.5);
-  backdrop-filter:blur(var(--glass-blur)) saturate(1.5);
-  border-color:var(--glass-border);
-}
-
-/* energetic gradient CTA — same as landing */
-.btn-primary{
-  background:linear-gradient(128deg, var(--c-teal) 0%, color-mix(in srgb,var(--c-indigo) 62%, var(--c-teal)) 100%);
-  color:#fff;box-shadow:0 6px 18px -8px color-mix(in srgb,var(--c-indigo) 70%,transparent), var(--shadow-sm);
-}
-.btn-primary:hover{filter:brightness(1.05) saturate(1.05);background:linear-gradient(128deg, var(--c-teal) 0%, color-mix(in srgb,var(--c-indigo) 62%, var(--c-teal)) 100%);box-shadow:0 10px 26px -10px color-mix(in srgb,var(--c-indigo) 75%,transparent), var(--shadow-md);}
-
-/* app windows read as glass-framed product shots (inner UI stays solid) */
-.win{
-  box-shadow:var(--shadow-lg), inset 0 1px 0 var(--glass-hi);
-  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
-}
-.tour-step:hover .win{transform:translateY(-3px);box-shadow:var(--shadow-lg), 0 0 0 1px color-mix(in srgb,var(--c-teal) 22%,transparent), inset 0 1px 0 var(--glass-hi);}
-html[data-theme="dark"] .win{outline:1px solid rgba(255,255,255,.05);outline-offset:-1px;}
-
-/* rotating accent on the per-step kickers — energetic, restrained */
-.step-kicker::before{background:currentColor;}
-#idee .step-kicker{color:var(--ink-teal);}
-#research .step-kicker{color:var(--ink-coral);}
-#markt .step-kicker{color:var(--ink-indigo);}
-#canvas .step-kicker{color:var(--ink-amber);}
-#risk .step-kicker{color:var(--ink-teal);}
-#kalkulation .step-kicker{color:var(--ink-coral);}
-#foerderung .step-kicker{color:var(--ink-indigo);}
-#report .step-kicker{color:var(--ink-amber);}
-
-/* closing CTA: vibrant divider echoing the landing waitlist edge */
-.closing .h2{position:relative;}
+/* closing: quiet hairline divider instead of a coloured bar */
 .closing::before{
-  content:"";display:block;width:60px;height:4px;border-radius:999px;
-  margin:0 auto clamp(22px,3vw,30px);
-  background:linear-gradient(90deg,var(--c-teal),var(--c-coral),var(--c-amber),var(--c-indigo));
+  content:"";display:block;width:40px;height:1px;
+  margin:0 auto clamp(22px,3vw,30px);background:var(--border-strong);
 }
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
