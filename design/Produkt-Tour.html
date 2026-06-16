@@ -568,6 +568,29 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .gate-foot .ic{width:15px;height:15px;color:var(--primary);flex:none;margin-top:2px;}
 .gate-foot b{color:var(--text);font-weight:600;}
 
+/* ---- Geführter Pitch · KI-Sparring (Idee-Screen) ---- */
+.spar{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;margin-bottom:14px;}
+.spar-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px;}
+.spar-h .t{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);}
+.spar-thread{display:grid;gap:10px;}
+.spar-q{display:flex;gap:9px;align-items:flex-start;}
+.spar-q .av{width:24px;height:24px;border-radius:7px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;flex:none;margin-top:1px;}
+.spar-q .av .ic{width:14px;height:14px;}
+.spar-q .bub{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;border-top-left-radius:4px;padding:9px 12px;font-size:.84rem;line-height:1.45;color:var(--text);}
+.spar-a{display:flex;justify-content:flex-end;}
+.spar-a .bub{background:color-mix(in srgb,var(--primary) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--primary) 26%,var(--border));border-radius:10px;border-top-right-radius:4px;padding:9px 12px;font-size:.84rem;line-height:1.45;color:var(--text);max-width:82%;}
+.spar-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;margin-left:33px;}
+.spar-chip{font-size:.78rem;padding:6px 12px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);}
+.spar-chip.add{color:var(--text-muted);border-style:dashed;}
+
+/* ---- Report-Vorlagen (Report-Screen) ---- */
+.tpl-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+.tpl-tab{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:500;padding:8px 13px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);}
+.tpl-tab.active{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 7%,var(--surface));color:var(--text);}
+.tpl-tab .ic{width:14px;height:14px;}
+.tpl-note{font-size:.76rem;color:var(--text-muted);margin:0 0 14px;display:flex;align-items:center;gap:8px;}
+.tpl-note .ic{width:14px;height:14px;color:var(--primary);flex:none;}
+
 /* ============ CLOSING ============ */
 .closing{text-align:center;}
 .closing .h2{max-width:18ch;margin:0 auto 18px;}
@@ -677,9 +700,25 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
           </div>
           <div class="app-body">
             <div class="s1">
-              <div class="s1-eyebrow">// Beschreibe deine Geschäftsidee in einem Satz</div>
+              <div class="s1-eyebrow">// Du hast eine Idee – Validar schärft sie mit dir im Dialog</div>
+              <div class="spar">
+                <div class="spar-h"><span class="t">Geführter Einstieg · KI-Sparring</span><span class="tag ok">Frage 3 von 4</span></div>
+                <div class="spar-thread">
+                  <div class="spar-q"><span class="av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span><span class="bub">Lass uns deine Idee schärfen. Welches konkrete Problem löst du – und für wen?</span></div>
+                  <div class="spar-a"><span class="bub">DSGVO-Prüfung von Mandantenverträgen, für kleine Kanzleien.</span></div>
+                  <div class="spar-q"><span class="av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span><span class="bub">Und wie lösen die Kanzleien das heute?</span></div>
+                  <div class="spar-a"><span class="bub">Manuell, stundenlang – oder gar nicht.</span></div>
+                  <div class="spar-q"><span class="av"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span><span class="bub">Was ist dein <em>unfairer</em> Vorteil gegenüber ChatGPT &amp; Co.? Wähl, was zutrifft – oder ergänze:</span></div>
+                </div>
+                <div class="spar-chips">
+                  <span class="spar-chip">Deutsche Rechtsdaten</span>
+                  <span class="spar-chip">Erklärbare Treffer</span>
+                  <span class="spar-chip">EU-Hosting</span>
+                  <span class="spar-chip add">etwas anderes …</span>
+                </div>
+              </div>
               <div class="s1-card">
-                <div class="lbl">Twitter-Pitch</div>
+                <div class="lbl">Ergebnis · Twitter-Pitch</div>
                 <div class="txt">Eine KI-Plattform, die kleinen und mittleren Kanzleien in Deutschland hilft, Mandanten­verträge automatisch auf DSGVO-Konformität und Haftungs­risiken zu prüfen.<span class="caret"></span></div>
                 <div class="meta"><span>183 / 280 Zeichen</span><span>Deutsch erkannt</span></div>
               </div>
@@ -1273,10 +1312,17 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
         <aside class="app-side" data-active="report"></aside>
         <div class="app-main">
           <div class="app-top">
-            <div class="crumb"><b>Report</b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span>Differenzierungs-Report v1.0</span></div>
+            <div class="crumb"><b>Report</b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span>Vorlage: Differenzierungs-Report · v1.0</span></div>
             <div class="t-right"><span class="eng-badge"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg> Claude</span><span class="tag ok">218 Quellen</span></div>
           </div>
           <div class="app-body">
+            <div class="tpl-tabs">
+              <button class="tpl-tab active"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg> Differenzierungs-Report</button>
+              <button class="tpl-tab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg> Geschäftsplan</button>
+              <button class="tpl-tab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M12 17v4M8 21h8"/></svg> Pitch-Deck-Gerüst</button>
+              <button class="tpl-tab"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6m-7 5 2 2 4-4"/></svg> Förderantrag-Anlage</button>
+            </div>
+            <div class="tpl-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg> Jede Vorlage wird automatisch aus deinen validierten Daten befüllt – mit Quellen.</div>
             <div class="s6">
               <div class="doc">
                 <div class="doc-top">
