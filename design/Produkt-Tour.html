@@ -591,6 +591,58 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
 .tpl-note{font-size:.76rem;color:var(--text-muted);margin:0 0 14px;display:flex;align-items:center;gap:8px;}
 .tpl-note .ic{width:14px;height:14px;color:var(--primary);flex:none;}
 
+/* ---- Screen — Academic / Research Mode (intern) ---- */
+.s-acad{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;}
+@media(max-width:980px){.s-acad{grid-template-columns:1fr;}}
+.acad-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.acad-h .t{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);}
+.pf{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;}
+.pf-row{display:grid;grid-template-columns:1.7fr 64px 50px .9fr 58px;gap:10px;align-items:center;padding:11px 14px;border-top:1px solid var(--hairline);font-size:.8rem;}
+.pf-row:first-child{border-top:none;}
+.pf-head{background:var(--surface-2);font-family:var(--mono);font-size:.58rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);}
+.pf-row.active{background:color-mix(in srgb,var(--primary) 6%,var(--surface));}
+.pf-idea{font-weight:600;min-width:0;}
+.pf-idea small{display:block;font-weight:400;color:var(--text-muted);font-size:.7rem;}
+.pf-typ{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.03em;color:var(--text-muted);}
+.pf-score{font-family:var(--serif);font-size:1.05rem;color:var(--text);}
+.pf-status{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.03em;}
+.pf-status.val{color:#3f8f4f;} .pf-status.iter{color:var(--warn);} .pf-status.park{color:var(--text-muted);}
+.pf-iters{font-family:var(--mono);font-size:.72rem;color:var(--text-muted);text-align:right;}
+.iter{margin-top:14px;border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;}
+.iter .ih{font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+.iter .vrow{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:start;padding:9px 0;border-top:1px solid var(--hairline);}
+.iter .vrow:first-of-type{border-top:none;}
+.iter .vtag{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--primary);}
+.iter .vtxt{font-size:.8rem;line-height:1.4;}
+.iter .vdate{font-family:var(--mono);font-size:.64rem;color:var(--text-muted);white-space:nowrap;}
+.acad-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;margin-bottom:12px;}
+.acad-card h5{font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);font-weight:500;margin-bottom:12px;}
+.rate{display:grid;gap:8px;}
+.rate .rrow{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.rate .rl{font-size:.76rem;}
+.rate .stars{display:inline-flex;gap:2px;color:var(--primary);}
+.rate .stars svg{width:12px;height:12px;}
+.rate .stars .off{color:var(--border-strong);}
+.rate .efb{margin-top:10px;padding-top:9px;border-top:1px solid var(--hairline);font-size:.74rem;color:var(--text);line-height:1.45;}
+.rate .efb small{color:var(--text-muted);}
+.snap{display:grid;gap:6px;}
+.snap .srow{display:flex;justify-content:space-between;gap:10px;font-size:.72rem;}
+.snap .srow .k{color:var(--text-muted);}
+.snap .srow .v{font-family:var(--mono);color:var(--text);text-align:right;}
+.exp{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.exp button{font-family:var(--mono);font-size:.62rem;letter-spacing:.02em;padding:6px 10px;border-radius:7px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);display:inline-flex;align-items:center;gap:6px;}
+.exp button .ic{width:12px;height:12px;color:var(--primary);}
+.wgt{display:grid;gap:9px;}
+.wrow{display:grid;grid-template-columns:78px 1fr 30px;gap:9px;align-items:center;}
+.wrow .wl{font-size:.72rem;}
+.wtrack{height:6px;border-radius:4px;background:var(--surface-2);position:relative;}
+.wfill{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:var(--primary);}
+.wknob{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--surface);border:2px solid var(--primary);transform:translate(-50%,-50%);}
+.wval{font-family:var(--mono);font-size:.68rem;color:var(--text-muted);text-align:right;}
+.hitl{margin-top:11px;padding-top:10px;border-top:1px solid var(--hairline);font-size:.72rem;color:var(--text-muted);display:flex;gap:7px;align-items:flex-start;line-height:1.4;}
+.hitl .ic{width:13px;height:13px;color:var(--primary);flex:none;margin-top:2px;}
+.intern-badge{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.06em;color:var(--warn);background:color-mix(in srgb,var(--warn) 12%,transparent);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);border-radius:5px;padding:2px 7px;display:inline-flex;align-items:center;gap:5px;}
+
 /* ============ CLOSING ============ */
 .closing{text-align:center;}
 .closing .h2{max-width:18ch;margin:0 auto 18px;}
@@ -1368,6 +1420,87 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
     </div>
   </section>
 
+  <!-- ===== STEP 10 — ACADEMIC MODE (intern) ===== -->
+  <section class="tour-step" id="academic">
+    <div class="step-head reveal">
+      <span class="step-kicker">Schritt 10 · Academic Mode</span>
+      <h2>Dein interner Forschungsmodus — eigene Ideen validieren, das Tool evaluieren.</h2>
+      <p>Ein interner Modus für deine eigene Ideen-Pipeline und – falls du Validar als Artefakt einer Masterarbeit (Design Science Research) baust – für reproduzierbare Läufe, transparente Bewertung und die Tool-Evaluation selbst. Dieser Modus gehört bewusst nicht zur öffentlichen Produktseite.</p>
+    </div>
+    <div class="win reveal">
+      <div class="win-bar"><div class="win-dots"><i></i><i></i><i></i></div><div class="win-url">app.validar.de/<b>academic</b></div><div class="spacer"></div></div>
+      <div class="app">
+        <aside class="app-side" data-active="academic"></aside>
+        <div class="app-main">
+          <div class="app-top">
+            <div class="crumb"><b>Academic Mode</b><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg><span>Ideen-Portfolio · 4 Ideen</span></div>
+            <div class="t-right"><span class="intern-badge"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Intern · Forschung</span></div>
+          </div>
+          <div class="app-body">
+            <div class="s-acad">
+              <div>
+                <div class="acad-h"><span class="t">Ideen-Portfolio</span><span class="tag neutral">Dogfooding · Fallstudien</span></div>
+                <div class="pf">
+                  <div class="pf-row pf-head"><span>Idee</span><span>Typ</span><span>Score</span><span>Status</span><span>Iter.</span></div>
+                  <div class="pf-row active"><span class="pf-idea">Legal-Tech DSGVO-Audit<small>Kanzleien 1–10 Anwälte</small></span><span class="pf-typ">Hybrid</span><span class="pf-score">78</span><span class="pf-status val">In Validierung</span><span class="pf-iters">v3</span></div>
+                  <div class="pf-row"><span class="pf-idea">KI-Onboarding für KMU<small>Self-Service</small></span><span class="pf-typ">Produkt</span><span class="pf-score">64</span><span class="pf-status iter">Iteration</span><span class="pf-iters">v2</span></div>
+                  <div class="pf-row"><span class="pf-idea">Nachhaltigkeits-Reporting<small>Beratungsleistung</small></span><span class="pf-typ">Beratung</span><span class="pf-score">71</span><span class="pf-status val">In Validierung</span><span class="pf-iters">v1</span></div>
+                  <div class="pf-row"><span class="pf-idea">Handwerks-Subunternehmer-Markt<small>Marktplatz</small></span><span class="pf-typ">Produkt</span><span class="pf-score">41</span><span class="pf-status park">Geparkt</span><span class="pf-iters">v4</span></div>
+                </div>
+                <div class="iter">
+                  <div class="ih">Iterations-Log · Legal-Tech DSGVO-Audit</div>
+                  <div class="vrow"><span class="vtag">v3</span><span class="vtxt">EU-Hosting als Standard ergänzt – <small>Reputations- &amp; Datenschutzrisiko gesenkt (8,2 → 5,9).</small></span><span class="vdate">heute</span></div>
+                  <div class="vrow"><span class="vtag">v2</span><span class="vtxt">Zielgruppe auf 1–10-Anwalt-Kanzleien verengt; <small>Pricing wertbasiert auf € 59.</small></span><span class="vdate">vor 5 T.</span></div>
+                  <div class="vrow"><span class="vtag">v1</span><span class="vtxt">Erste Idee: DSGVO-Vertragsprüfung, <small>breit gefasst, ungeprüfte Annahmen.</small></span><span class="vdate">vor 2 Wo.</span></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="acad-card">
+                  <h5>Evaluation · ausgewählte Idee</h5>
+                  <div class="rate">
+                    <div class="rrow"><span class="rl">Nützlichkeit</span><span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="off" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span></div>
+                    <div class="rrow"><span class="rl">Korrektheit</span><span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="off" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span></div>
+                    <div class="rrow"><span class="rl">Verständlichkeit</span><span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 18l-6.1 3 1.2-6.8-5-4.9 6.9-1z"/></svg></span></div>
+                    <div class="efb"><b>Experten-Feedback:</b> 2 von 3 Kanzlei-Partnern bestätigen Cloud-Bedenken. <small>Soll/Ist: Prognose vs. Realität – Pilot läuft.</small></div>
+                  </div>
+                </div>
+
+                <div class="acad-card">
+                  <h5>Snapshot &amp; Export · reproduzierbar</h5>
+                  <div class="snap">
+                    <div class="srow"><span class="k">Quellen</span><span class="v">218</span></div>
+                    <div class="srow"><span class="k">Modell</span><span class="v">claude-opus-4-8</span></div>
+                    <div class="srow"><span class="k">Prompt-Set</span><span class="v">v4</span></div>
+                    <div class="srow"><span class="k">Gewichte-Profil</span><span class="v">Standard</span></div>
+                    <div class="srow"><span class="k">Stand</span><span class="v">16.06.2026</span></div>
+                  </div>
+                  <div class="exp">
+                    <button><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> BibTeX</button>
+                    <button><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> JSON</button>
+                    <button><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg> CSV</button>
+                    <button><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 18h4"/></svg> Methoden-Anhang</button>
+                  </div>
+                </div>
+
+                <div class="acad-card">
+                  <h5>Scoring · transparent &amp; konfigurierbar</h5>
+                  <div class="wgt">
+                    <div class="wrow"><span class="wl">Markt</span><span class="wtrack"><span class="wfill" style="width:60%"></span><span class="wknob" style="left:60%"></span></span><span class="wval">1,2</span></div>
+                    <div class="wrow"><span class="wl">Wettbewerb</span><span class="wtrack"><span class="wfill" style="width:75%"></span><span class="wknob" style="left:75%"></span></span><span class="wval">1,5</span></div>
+                    <div class="wrow"><span class="wl">Finanzen</span><span class="wtrack"><span class="wfill" style="width:65%"></span><span class="wknob" style="left:65%"></span></span><span class="wval">1,3</span></div>
+                    <div class="wrow"><span class="wl">Regulierung</span><span class="wtrack"><span class="wfill" style="width:50%"></span><span class="wknob" style="left:50%"></span></span><span class="wval">1,0</span></div>
+                  </div>
+                  <div class="hitl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>Human-in-the-Loop:</b> 3 KI-Bewertungen manuell korrigiert – jede Korrektur protokolliert.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CLOSING ===== -->
   <section class="tour-step closing">
     <div class="reveal">
@@ -1417,6 +1550,7 @@ html[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
   <div class="side-item" data-key="kalkulation"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Kalkulation</div>
   <div class="side-item" data-key="foerderung"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg> Fördermittel <span class="badge">6</span></div>
   <div class="side-item" data-key="report"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg> Report</div>
+  <div class="side-item" data-key="academic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg> Academic Mode <span class="badge">intern</span></div>
   <div class="s-foot"><span class="av">MK</span><span class="nm">M. Krüger<small>Pro · DACH</small></span></div>
 </template>
 
