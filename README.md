@@ -1,4 +1,4 @@
-# Business Model Factory
+# Validar
 
 KI-gestütztes Tool, mit dem Gründer:innen, Solopreneure und Master-Studierende ein
 Geschäftsmodell **empirisch validieren**. Es kombiniert automatisierte Marktrecherche
