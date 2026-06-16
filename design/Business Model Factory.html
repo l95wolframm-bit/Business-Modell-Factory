@@ -318,6 +318,20 @@ html[data-theme="dark"] .methodik-eyecatchers img{filter:saturate(.92) brightnes
   margin-top:11px;font-family:var(--mono);font-size:.72rem;letter-spacing:.01em;color:var(--muted);line-height:1.5;
 }
 
+/* ---------- METHODEN-BIBLIOTHEK (Methodik) ---------- */
+.method-lib{margin-top:clamp(28px,3vw,44px);border-top:1px solid var(--line);padding-top:clamp(28px,3vw,40px);}
+.method-lib .ml-h{margin-bottom:10px;}
+.method-lib .ml-sub{font-size:.92rem;color:var(--muted);max-width:62ch;margin-bottom:26px;}
+.ml-groups{display:grid;gap:20px;grid-template-columns:1fr;}
+@media(min-width:600px){.ml-groups{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:980px){.ml-groups{grid-template-columns:repeat(4,1fr);}}
+.ml-group .ml-cat{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:13px;}
+.ml-group ul{display:grid;gap:8px;}
+.ml-group li{font-size:.86rem;color:var(--ink);display:flex;gap:9px;align-items:flex-start;line-height:1.35;}
+.ml-group li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--line-strong);flex:none;margin-top:8px;}
+.ml-note{margin-top:24px;font-size:.86rem;color:var(--muted);display:inline-flex;align-items:center;gap:9px;}
+.ml-note .ic{width:15px;height:15px;color:var(--accent);flex:none;}
+
 /* ---------- HOW / TIMELINE ---------- */
 .timeline{position:relative;display:grid;}
 .timeline::before{content:"";position:absolute;left:23px;top:20px;bottom:20px;width:1px;background:var(--line-strong);}
@@ -601,6 +615,30 @@ html[data-theme="dark"] .methodik-eyecatchers img{filter:saturate(.92) brightnes
           <img src="graphics/stress-test.svg" alt="KI-Stress-Test: jeder Canvas-Baustein wird mit gezielten Gegenfragen konfrontiert." loading="lazy" width="480" height="360" />
           <figcaption>Stress-Test nach Haaker et&nbsp;al.: gezielte KI-Gegenfragen je Baustein.</figcaption>
         </figure>
+      </div>
+
+      <div class="method-lib reveal">
+        <div class="ml-h"><span class="eyebrow">Methoden-Bibliothek</span></div>
+        <p class="ml-sub">Validar kuratiert bewährte Strategie-, Beratungs- und Finanzmethoden und schlägt dir je Fragestellung das passende Werkzeug vor – statt dich vor einer leeren Methodensammlung stehen zu lassen.</p>
+        <div class="ml-groups">
+          <div class="ml-group">
+            <div class="ml-cat">Strategie</div>
+            <ul><li>SWOT-Analyse</li><li>PESTEL</li><li>Porter's Five Forces</li><li>Blue Ocean Strategy</li><li>Szenariotechnik</li></ul>
+          </div>
+          <div class="ml-group">
+            <div class="ml-cat">Markt &amp; Vertrieb</div>
+            <ul><li>Customer Journey Mapping</li><li>Persona-Entwicklung</li><li>Customer Lifetime Value</li><li>Positionierungsanalyse</li><li>Pricing-Strategien</li></ul>
+          </div>
+          <div class="ml-group">
+            <div class="ml-cat">Prozess &amp; Service</div>
+            <ul><li>Service Blueprinting</li><li>Value Stream Mapping</li><li>Lean / Kaizen</li><li>RACI-Matrix</li><li>GAP-Analyse</li></ul>
+          </div>
+          <div class="ml-group">
+            <div class="ml-cat">Finanzen &amp; Risiko</div>
+            <ul><li>Deckungsbeitragsrechnung</li><li>Break-Even-Analyse</li><li>Business-Case-Kalkulation</li><li>Risikoanalyse</li><li>Kosten-Nutzen-Analyse</li></ul>
+          </div>
+        </div>
+        <p class="ml-note"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg> KI-kuratiert: passend zu Branche, Geschäftsmodell-Typ und aktueller Phase.</p>
       </div>
     </div>
   </section>
