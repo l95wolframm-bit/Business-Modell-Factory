@@ -15,6 +15,16 @@
   status = 200
 
 [[redirects]]
+  from = "/prototyp"
+  to = "/Prototyp.html"
+  status = 200
+
+[[redirects]]
+  from = "/roadmap"
+  to = "/Roadmap.html"
+  status = 200
+
+[[redirects]]
   from = "/mvp"
   to = "/MVP.html"
   status = 200
